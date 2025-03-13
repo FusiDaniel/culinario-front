@@ -11,7 +11,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "node-server": "cd apps/node-server yarn dev"
+    "node-server": "cd apps/node-server && yarn dev",
+    "mobile": "cd apps/mobile && yarn start"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
