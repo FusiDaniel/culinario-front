@@ -1,37 +1,12 @@
-import type { ImageProps } from 'next/image';
-import Image from 'next/image';
-import styles from '../styles/page.module.css'; // You might want to move this CSS file later
-
-type Props = Omit<ImageProps, 'src'> & {
-  srcDark: string;
-  srcLight: string;
-};
-
-const ThemeImage = (props: Props) => {
-  const { srcDark, srcLight, ...rest } = props;
-
-  return (
-    <>
-      <Image {...rest} src={srcLight} className="imgLight" />
-      <Image {...rest} src={srcDark} className="imgDark" />
-    </>
-  );
-};
 
 const Home = () => (
-  <div className={styles.page}>
-    <main className={styles.main}>
-      <ThemeImage
-        className={styles.logo}
-        srcLight="turborepo-dark.svg"
-        srcDark="turborepo-light.svg"
-        alt="Turborepo logo"
-        width={180}
-        height={38}
-        priority
-      />
-      <p className={styles.primary}> test</p>
-    </main>
+  <div>
+    <div className="p-safe w-full h-full flex border-4 items-center justify-center border-purple-400 m-0 p-0">
+      <p className="color-purple-700 font-bold text-xl">Edit app/index.tsx to edit this screen.</p>
+      <button type="button" className="p-6 bg-lime-500 rounded-lg mt-5 group hover:bg-yellow-200 active:bg-yellow-500" onClick={() => console.log('clicked')}>
+        <p className="color-indigo-900 font-bold text-xl group-active:color-rose-700 group-hover:color-rose-300">Click me!</p>
+      </button>
+    </div>
   </div>
 );
 
