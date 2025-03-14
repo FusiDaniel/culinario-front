@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    "./styles/*": "./src/styles/*",
     "./*": "./src/*.tsx"
   },
+  "files": [
+    "src/styles/global.css"
+  ],
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",

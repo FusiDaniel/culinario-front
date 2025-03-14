@@ -1,0 +1,16 @@
+{
+  "name": "@repo/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "exports": {
+    ".": "./src/tailwind.config.ts"
+  },
+  "dependencies": {
+    "nativewind": "^4.1.23",
+    "react-native-reanimated": "3.16.2",
+    "react-native-safe-area-context": "^5.3.0",
+    "react-native-webview": "13.12.5",
+    "tailwindcss": "^3.4.17"
+  }
+}
