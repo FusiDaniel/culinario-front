@@ -161,7 +161,18 @@ export const config = [
     },
   })),
   {
-    files: ['**/pages/**/*.tsx', '**/pages/**/*.ts', '**/app/**/*.tsx', '**/app/**/*.ts', '**/tamagui.config.ts', '**/jest.config.ts', 'eslint.config.js', 'eslint.config.mjs', 'commitlint.config.ts', '**/dayjs.ts'],
+    files: [
+      '**/pages/**/*.tsx',
+      '**/pages/**/*.ts',
+      '**/app/**/*.tsx',
+      '**/app/**/*.ts',
+      '**/tamagui.config.ts',
+      '**/jest.config.ts',
+      '**/commitlint.config.ts',
+      '**/eslint.config.*',
+      '**/next.config.js',
+      '**/dayjs.ts',
+    ],
     rules: {
       'import/no-default-export': 'off',
     },

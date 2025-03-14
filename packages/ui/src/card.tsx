@@ -1,27 +1,27 @@
-import { type JSX } from "react";
+import type { JSX } from 'react';
 
-export function Card({
-  className,
-  title,
+export const Card = ({
   children,
+  className,
   href,
+  title,
 }: {
-  className?: string;
-  title: string;
   children: React.ReactNode;
+  className?: string;
   href: string;
-}): JSX.Element {
-  return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
-  );
-}
+  title: string;
+}): JSX.Element => (
+  <a
+    className={className}
+    href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <h2>
+      {title}
+      {' '}
+      <span>-&gt;</span>
+    </h2>
+    <p>{children}</p>
+  </a>
+);
