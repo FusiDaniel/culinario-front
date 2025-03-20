@@ -6,7 +6,11 @@
         "name": "next"
       }
     ],
-    "jsx": "preserve"
+    "baseUrl": "./src",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": [
     "**/*.ts",

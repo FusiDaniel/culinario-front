@@ -1,14 +1,12 @@
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 const Index = () => (
-  <View
-    style={{
-      alignItems: 'center',
-      flex: 1,
-      justifyContent: 'center',
-    }}
-  >
-    <Text>Edit app/index.tsx to edit this screen.</Text>
+  <View>
+    <Text style={{ fontFamily: 'BlinkerRegular' }}>Edit app/index.tsx to edit this screen.</Text>
+    <View />
+    <Pressable onPress={() => console.log('clicked')}>
+      <Text style={{ fontFamily: 'BlinkerBold' }}>Click me!</Text>
+    </Pressable>
   </View>
 );
 

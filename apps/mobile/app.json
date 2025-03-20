@@ -32,6 +32,19 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Blinker-Bold.ttf",
+            "./assets/fonts/Blinker-ExtraBold.ttf",
+            "./assets/fonts/Blinker-Light.ttf",
+            "./assets/fonts/Blinker-Regular.ttf",
+            "./assets/fonts/Blinker-SemiBold.ttf"
+
+          ]
+        }
       ]
     ],
     "experiments": {

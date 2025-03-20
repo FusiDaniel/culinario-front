@@ -13,14 +13,28 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Blinker-Regular.ttf"
+            href="/fonts/Blinker-Bold.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Blinker-Bold.ttf"
+            href="/fonts/Blinker-ExtraBold.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/Blinker-Light.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+           <link
+            rel="preload"
+            href="/fonts/Blinker-Regular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
