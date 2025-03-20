@@ -86,7 +86,6 @@ export const HomeScreen = ({ pagesMode = false }: { pagesMode?: boolean }) => {
   return (
     <YStack flex={1} justify="center" items="center" gap="$8" p="$4" bg="$background">
       <XStack
-        flex={1}
         position="absolute"
         width="100%"
         t="$6"
@@ -98,7 +97,7 @@ export const HomeScreen = ({ pagesMode = false }: { pagesMode?: boolean }) => {
       </XStack>
 
       <YStack gap="$4">
-        <H1 text="center" color="$color12" size="$5xlR">
+        <H1 text="center" color="$color12" size="$xlB">
           Welcome to Tamagui.
         </H1>
         <Paragraph color="$color10" text="center" size="$lgR">

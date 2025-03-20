@@ -158,7 +158,7 @@ export const font = createFont({
   }, {} as Record<keyof typeof size, number>),
   face: {
     300: { normal: 'BlinkerLight' },
-    400: { normal: 'Blinker' },
+    400: { normal: 'BlinkerRegular' },
     600: { normal: 'BlinkerSemibold' },
     700: { normal: 'BlinkerBold' },
     800: { normal: 'BlinkerExtrabold' },
