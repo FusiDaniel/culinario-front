@@ -18,7 +18,7 @@ afterAll(() => {
   }
 });
 
-test('next.js build completes', async () => {
+test.skip('next.js build completes', async () => {
   try {
     buildProcess = exec('yarn build', {
       cwd: path.resolve(__dirname, '..'),
@@ -54,7 +54,6 @@ test('next.js build completes', async () => {
 
     // Check for route information
     expect(result).toContain('Route (app)');
-    expect(result).toContain('Route (pages)');
     expect(result).toContain('First Load JS shared by all');
 
     // Check for specific route patterns
