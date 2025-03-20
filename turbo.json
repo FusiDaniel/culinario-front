@@ -1,17 +1,11 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
-  "tasks": {
+  "$schema": "https://turborepo.org/schema.json",
+  "globalEnv": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
+  "pipeline": {
     "build": {
+      "env": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+      "outputs": [".next/**", "!.next/cache/**", "build/**", "node_modules/.cache/metro/**"]
     },
     "dev": {
       "cache": false,
