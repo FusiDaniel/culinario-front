@@ -1,13 +1,12 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/config",
   "version": "0.0.1",
   "private": true,
   "sideEffects": [
     "*.css"
   ],
-  "main": "src/index.tsx",
+  "main": "src/index.ts",
   "types": "./src",
-  "module:jsx": "src",
   "files": [
     "dist",
     "types"
@@ -17,8 +16,10 @@
     "watch": "tamagui-build --skip-types --watch"
   },
   "dependencies": {
-    "@repo/config": "0.0.1",
-    "@tamagui/toast": "^1.125.26",
+    "@tamagui/animations-react-native": "^1.125.26",
+    "@tamagui/font-inter": "^1.125.26",
+    "@tamagui/shorthands": "^1.125.26",
+    "@tamagui/themes": "^1.125.26",
     "tamagui": "^1.125.26"
   },
   "devDependencies": {

@@ -1,20 +1,24 @@
 {
-  "extends": "@repo/typescript-config/base.json",
+  "extends": "./tsconfig.base",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "paths": {
+      "app/*": [
+        "./packages/app/*"
+      ],
+      "@repo/ui/*": [
+        "./packages/ui/*"
+      ]
+    },
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "next-env.d.ts",
-    "next.config.js",
-    ".next/types/**/*.ts"
-  ],
   "exclude": [
-    "node_modules"
+    "**/node_modules",
+    "**/dist",
+    "**/types",
+    "apps/next/out",
+    "apps/next/.next",
+    "apps/next/.tamagui"
   ]
 }
