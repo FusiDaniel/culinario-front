@@ -66,9 +66,7 @@ export const ButtonText = styled(SizableText, {
         color: 'white',
       },
       secondary: {
-        color: '$neutralLight',
-        hoverStyle: { color: '$neutralLight' },
-        pressStyle: { color: '$neutralLight' },
+        color: '$neutralBase',
       },
       tertiary: {
         color: 'white',
@@ -85,7 +83,7 @@ const iconSizeStyle = {
 
 const iconVariantColorStyle = {
   primary: 'white',
-  secondary: 'white',
+  secondary: '$neutral',
   tertiary: 'white',
 };
 
@@ -99,6 +97,7 @@ export const ButtonIcon = ({ children }: { children: ReactElement<any, JSXElemen
   return cloneElement(children, {
     width: iconSizeStyle[sizeStyle],
     height: iconSizeStyle[sizeStyle],
+    size: iconSizeStyle[sizeStyle],
     color: iconVariantColorStyle[variantStyle],
   });
 };

@@ -88,8 +88,11 @@ const builtThemes = createThemes({
     extra: {
       dark: {
         neutral: 'hsla(0, 0%, 50%, 1)',
+        neutralBase: 'hsla(0, 0%, 100%, 1)',
         neutralDark: 'hsla(0, 0%, 40%, 1)',
         neutralLight: 'hsla(0, 0%, 97%, 1)',
+        neutralMid: 'hsla(0, 0%, 50%, 1)',
+        neutralOposite: 'hsla(0, 0%, 0%, 1)',
         primary: 'hsla(81, 70%, 40%, 1)',
         primaryDark: 'hsla(81, 70%, 30%, 1)',
         primaryLight: 'hsla(81, 70%, 60%, 1)',
@@ -101,8 +104,11 @@ const builtThemes = createThemes({
       },
       light: {
         neutral: 'hsla(0, 0%, 50%, 1)',
+        neutralBase: 'hsla(0, 0%, 0%, 1)',
         neutralDark: 'hsla(0, 0%, 40%, 1)',
         neutralLight: 'hsla(0, 0%, 97%, 1)',
+        neutralMid: 'hsla(0, 0%, 50%, 1)',
+        neutralOposite: 'hsla(0, 0%, 100%, 1)',
         primary: 'hsla(81, 70%, 40%, 1)',
         primaryDark: 'hsla(81, 70%, 30%, 1)',
         primaryLight: 'hsla(81, 70%, 60%, 1)',
