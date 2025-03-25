@@ -4,7 +4,6 @@ import {
   CustomToast,
   isWeb,
   TamaguiProvider,
-
   ToastProvider,
 } from '@repo/ui';
 import { useColorScheme } from 'react-native';

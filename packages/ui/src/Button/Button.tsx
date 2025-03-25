@@ -6,7 +6,7 @@ import { useLink } from 'solito/navigation';
 import { withStaticProperties } from 'tamagui';
 import { ButtonFrame, ButtonIcon, ButtonText } from './style';
 
-export type ButtonProps = Omit<TButtonProps, 'size' | 'variant'> & {
+export type ButtonProps = Omit<TButtonProps, 'rounded' | 'size' | 'variant'> & {
   experimental?: {
     isNestedNavigator: boolean;
     nativeBehavior: 'stack-replace';
@@ -17,6 +17,7 @@ export type ButtonProps = Omit<TButtonProps, 'size' | 'variant'> & {
   leftIcon?: NamedExoticComponent<IconProps>;
   replace?: boolean;
   rightIcon?: NamedExoticComponent<IconProps>;
+  rounded?: boolean;
   scroll?: boolean;
   size?: SizeTokens;
   variant?: 'primary' | 'secondary' | 'tertiary';
@@ -34,6 +35,7 @@ export const Button = ({
   leftIcon: LeftIcon,
   replace,
   rightIcon: RightIcon,
+  rounded = false,
   scroll,
   size = 'MD',
   variant = 'primary',
@@ -42,15 +44,17 @@ export const Button = ({
   const linkProps = useLink({ experimental, href, replace, scroll });
 
   return (
-    <Btn sizeStyle={size} variantStyle={variant} {...linkProps} {...rest}>
+    <Btn sizeStyle={size} variantStyle={variant} roundedStyle={rounded} {...href && linkProps} {...rest}>
       {LeftIcon && (
         <Btn.Icon>
           <LeftIcon />
         </Btn.Icon>
       )}
-      <Btn.Text>
-        {children}
-      </Btn.Text>
+      {children && (
+        <Btn.Text>
+          {children}
+        </Btn.Text>
+      )}
       {RightIcon && (
         <Btn.Icon>
           <RightIcon />

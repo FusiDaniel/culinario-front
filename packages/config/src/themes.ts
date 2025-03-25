@@ -87,6 +87,7 @@ const builtThemes = createThemes({
   base: {
     extra: {
       dark: {
+        background: '#1E1E1E',
         neutral: 'hsla(0, 0%, 50%, 1)',
         neutralBase: 'hsla(0, 0%, 100%, 1)',
         neutralDark: 'hsla(0, 0%, 40%, 1)',
@@ -103,6 +104,7 @@ const builtThemes = createThemes({
         shadowColor: darkShadows.shadow1,
       },
       light: {
+        background: '#FFFDFA',
         neutral: 'hsla(0, 0%, 50%, 1)',
         neutralBase: 'hsla(0, 0%, 0%, 1)',
         neutralDark: 'hsla(0, 0%, 40%, 1)',

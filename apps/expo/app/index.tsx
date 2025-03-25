@@ -5,7 +5,11 @@ const Screen = () => (
   <>
     <Stack.Screen
       options={{
-        title: 'Home',
+        animation: 'slide_from_right',
+        gestureDirection: 'horizontal',
+        gestureEnabled: true,
+        presentation: 'modal',
+        title: 'User',
       }}
     />
     <HomeScreen />

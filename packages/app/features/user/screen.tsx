@@ -17,8 +17,8 @@ export const UserDetailScreen = ({ id }: { id: string }) => {
     >
       <Paragraph
         verticalAlign="center"
-        size="$mdSB"
-        color="$blue10"
+        size="$body1"
+        color="$neutralBase"
       >
         {`User ID: ${id}`}
       </Paragraph>
