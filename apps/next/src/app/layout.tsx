@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   // You can use `suppressHydrationWarning` to avoid the warning about mismatched content during hydration in dev mode
   <html
-    lang="en"
+    lang="pt-br"
     suppressHydrationWarning
   >
     <head>

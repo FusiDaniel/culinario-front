@@ -2,7 +2,7 @@
   "name": "expo-app",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "npx expo start -c",
     "android": "npx expo run:android",
