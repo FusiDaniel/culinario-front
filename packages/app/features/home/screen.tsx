@@ -9,7 +9,7 @@ import {
   XStack,
   YStack,
 } from '@repo/ui';
-import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons';
+import { ChevronDown, ChevronUp, Move, SunMoon } from '@tamagui/lucide-icons';
 import { useState } from 'react';
 import { useLink } from 'solito/navigation';
 
@@ -22,9 +22,8 @@ const SheetDemo = () => {
   return (
     <>
       <Button
-        size="$6"
-        icon={open ? ChevronDown : ChevronUp}
-        circular
+        size="MD"
+        leftIcon={open ? ChevronDown : ChevronUp}
         onPress={() => setOpen(x => !x)}
       />
       <Sheet
@@ -47,11 +46,11 @@ const SheetDemo = () => {
         <Sheet.Frame items="center" justify="center" gap="$10" bg="$color2">
           <XStack gap="$2">
             <Paragraph text="center">Made by</Paragraph>
-            <Anchor color="$blue10" href="https://twitter.com/natebirdman" target="_blank">
+            <Anchor color="$accent6" href="https://twitter.com/natebirdman" target="_blank">
               @natebirdman,
             </Anchor>
             <Anchor
-              color="$blue10"
+              color="$accent6"
               href="https://github.com/tamagui/tamagui"
               target="_blank"
               rel="noreferrer"
@@ -61,9 +60,8 @@ const SheetDemo = () => {
           </XStack>
 
           <Button
-            size="$6"
-            circular
-            icon={ChevronDown}
+            size="MD"
+            leftIcon={ChevronDown}
             onPress={() => {
               setOpen(false);
               toast.show('Sheet closed!', {
@@ -97,21 +95,57 @@ export const HomeScreen = ({ pagesMode = false }: { pagesMode?: boolean }) => {
       </XStack>
 
       <YStack gap="$4">
-        <H1 text="center" color="$color12" size="$xlB">
+        <H1 text="center" color="$color12" size="$h1">
           Welcome to Tamagui.
         </H1>
-        <Paragraph color="$color10" text="center" size="$lgR">
+        <Paragraph color="$color10" text="center" size="$body1">
           Here's a basic starter to show navigating from one screen to another.
         </Paragraph>
         <Separator />
-        <Paragraph text="center" size="$smR">
+        <Paragraph text="center" size="$body1">
           This screen uses the same code on Next.js and React Native.
         </Paragraph>
         <Separator />
       </YStack>
 
+      <XStack gap="$4" items="center">
+        <Button size="SM" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+        <Button size="MD" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+        <Button size="LG" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+      </XStack>
+
+      <XStack gap="$4" items="center">
+        <Button variant="secondary" size="SM" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+        <Button variant="secondary" size="MD" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+        <Button variant="secondary" size="LG" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+      </XStack>
+
+      <XStack gap="$4" items="center">
+        <Button variant="tertiary" size="SM" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+        <Button variant="tertiary" size="MD" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+        <Button variant="tertiary" size="LG" leftIcon={Move} rightIcon={SunMoon}>
+          Test Button
+        </Button>
+      </XStack>
+
       <Button {...linkProps}>
-        <Paragraph text="center" size="$mdSB">
+        <Paragraph text="center" size="$body1">
           Link to user
         </Paragraph>
       </Button>
