@@ -8,6 +8,7 @@ export type SizeTokens = 'LG' | 'MD' | 'SM';
 export type Variants = 'primary' | 'secondary' | 'tertiary';
 
 type ButtonContextType = {
+  roundedStyle?: boolean;
   sizeStyle: SizeTokens;
   variantStyle: Variants;
 };
@@ -15,6 +16,7 @@ type ButtonContextType = {
 export const ButtonContext = createStyledContext<ButtonContextType>({
   sizeStyle: 'MD',
   variantStyle: 'primary',
+  roundedStyle: false,
 });
 
 export const ButtonFrame = styled(View, {
@@ -28,6 +30,22 @@ export const ButtonFrame = styled(View, {
   px: 12,
   gap: 8,
   variants: {
+    roundedStyle: {
+      true: (_, { props }) => {
+        const { sizeStyle } = props as ButtonContextType;
+        const sizes = {
+          SM: 32,
+          MD: 40,
+          LG: 48,
+        };
+        return {
+          height: sizes[sizeStyle],
+          width: sizes[sizeStyle],
+          px: 0,
+        };
+      },
+      false: {},
+    },
     sizeStyle: {
       SM: { height: 32 },
       MD: { height: 40 },

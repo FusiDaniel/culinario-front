@@ -21,7 +21,7 @@ const RootLayoutNav = () => {
   return (
     <Provider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack />
+        <Stack screenOptions={{ headerShown: false }} />
         <NativeToast />
       </ThemeProvider>
     </Provider>

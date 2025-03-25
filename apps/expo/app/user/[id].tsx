@@ -8,7 +8,7 @@ const Screen = () => {
     <>
       <Stack.Screen
         options={{
-          animation: 'slide_from_right',
+          animation: 'ios_from_right',
           gestureDirection: 'horizontal',
           gestureEnabled: true,
           presentation: 'modal',
