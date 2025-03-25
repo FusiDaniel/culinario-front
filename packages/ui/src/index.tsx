@@ -1,3 +1,4 @@
+export { Button } from './Button';
 export * from './CustomToast';
 export * from './MyComponent';
 export * from './SwitchRouterButton';
