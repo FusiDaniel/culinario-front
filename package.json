@@ -1,25 +1,51 @@
 {
-  "name": "portfolio",
+  "name": "culinario-front",
   "private": true,
-  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "./apps/*",
+    "./packages/*"
+  ],
+  "packageManager": "yarn@4.5.0",
   "engines": {
-    "node": ">=18"
+    "node": "22",
+    "npm": "10.8"
   },
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types",
-    "node-server": "cd apps/node-server yarn dev"
+    "native": "cd apps/expo && yarn start",
+    "native:prebuild": "cd apps/expo && yarn prebuild",
+    "ios": "cd apps/expo && yarn ios",
+    "android": "cd apps/expo && yarn android",
+    "watch": "ultra -r --no-pretty --concurrency 400 watch",
+    "vercel:install": "yarn set version 3.5 && yarn install",
+    "web": "yarn build && cd apps/next && yarn next",
+    "web:extract": "DISABLE_EXTRACTION=false yarn workspace next-app dev",
+    "web:prod": "yarn workspace next-app build",
+    "web:prod:serve": "yarn workspace next-app serve",
+    "postinstall": "yarn check-tamagui && yarn build",
+    "build": "yarn workspaces foreach --all --exclude next-app run build",
+    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest react-native-web-lite@latest",
+    "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
+    "check-tamagui": "tamagui check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky"
   },
-  "devDependencies": {
-    "prettier": "^3.5.0",
-    "turbo": "^2.4.2",
-    "typescript": "5.7.3"
+  "dependencies": {
+    "@babel/runtime": "^7.24.6",
+    "@tamagui/cli": "^1.125.26",
+    "check-dependency-version-consistency": "^4.1.0",
+    "eslint": "^9.3.0",
+    "husky": "^9.1.6",
+    "turbo": "^1.13.4",
+    "typescript": "^5.6.2",
+    "ultra-runner": "^3.10.5",
+    "vitest": "^2.1.1"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "resolutions": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native-svg": "15.11.2",
+    "react-native-web": "~0.19.12",
+    "react-refresh": "^0.14.0"
+  }
 }
