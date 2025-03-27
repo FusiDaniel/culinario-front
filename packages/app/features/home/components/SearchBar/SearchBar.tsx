@@ -40,7 +40,8 @@ export const SearchBar = () => {
           borderBottomLeftRadius={12}
           borderTopRightRadius={4}
           borderBottomRightRadius={4}
-          focusVisibleStyle={{ borderColor: 'transparent', outlineColor: '$focusOutline', outlineOffset: -1 }}
+          $platform-web={{ focusVisibleStyle: { borderColor: 'transparent', outlineColor: '$focusOutline', outlineOffset: -1 } }}
+          $platform-native={{ focusStyle: { borderColor: '$focusOutline', borderWidth: 2 } }}
         />
       </XStack>
       <View
