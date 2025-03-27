@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="Inspiration.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7BAD1F',
+            background: '#FFFDFA',
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100">
+  <!-- Theme Switch -->
+  <div class="theme-switch">
+    <button id="lightMode" class="active">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    </button>
+    <button id="darkMode">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="page-container pr-40 pb-40">
+    <!-- Home Page -->
+    <div class="flex flex-col items-center">
+      <h2 class="text-lg font-semibold text-gray-700 mb-2">Home</h2>
+      <div class="mobile-frame">
+        <div class="page">
+          <!-- Menu Button -->
+          <div class="bg-white px-4 pt-3 safe-area">
+            <button class="menu-button">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Header -->
+          <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+            <h1 class="text-2xl font-bold text-gray-800">Home</h1>
+            <p class="text-sm text-gray-500 mt-1">Discover new recipes</p>
+          </div>
+
+          <!-- Main Content -->
+          <div class="content-wrapper p-4 pb-10">
+            <!-- Search Bar -->
+            <div class="mb-6">
+              <div class="relative">
+                <input type="text" placeholder="Search recipes..."
+                  class="w-full bg-white rounded-xl pl-10 pr-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 border border-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Main Feature -->
+            <div class="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-6 mb-6 text-white">
+              <h2 class="text-2xl font-bold mb-2">I don't know what to cook</h2>
+              <p class="text-white/90 mb-4">Let us help you find the perfect recipe with the ingredients you already
+                have.</p>
+              <button
+                class="bg-white text-primary px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span>Check My Ingredients</span>
+              </button>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <button class="bg-white p-4 rounded-2xl shadow-sm flex items-center space-x-3">
+                <div class="bg-primary/10 p-2 rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                </div>
+                <span class="text-gray-800 font-medium">My Ingredients</span>
+              </button>
+              <button class="bg-white p-4 rounded-2xl shadow-sm flex items-center space-x-3">
+                <div class="bg-primary/10 p-2 rounded-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <span class="text-gray-800 font-medium">Saved Recipes</span>
+              </button>
+            </div>
+
+            <!-- Recipe Categories -->
+            <div class="space-y-6">
+              <!-- Quick Meals -->
+              <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Meals</h3>
+                <div class="carousel">
+                  <div class="recipe-card">
+                    <img src="https://picsum.photos/280/160?random=1" alt="Quick Pasta">
+                    <div class="recipe-card-content">
+                      <h3>15-Minute Pasta</h3>
+                      <p>Simple and delicious pasta dish</p>
+                      <div class="recipe-card-meta">
+                        <span>15 mins</span>
+                        <span>4 ingredients</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="recipe-card">
+                    <img src="https://picsum.photos/280/160?random=2" alt="Quick Sandwich">
+                    <div class="recipe-card-content">
+                      <h3>Healthy Sandwich</h3>
+                      <p>Fresh and nutritious sandwich</p>
+                      <div class="recipe-card-meta">
+                        <span>10 mins</span>
+                        <span>5 ingredients</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Healthy Options -->
+              <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Healthy Options</h3>
+                <div class="carousel">
+                  <div class="recipe-card">
+                    <img src="https://picsum.photos/280/160?random=3" alt="Fresh Salad">
+                    <div class="recipe-card-content">
+                      <h3>Mediterranean Salad</h3>
+                      <p>Fresh and healthy salad bowl</p>
+                      <div class="recipe-card-meta">
+                        <span>20 mins</span>
+                        <span>6 ingredients</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="recipe-card">
+                    <img src="https://picsum.photos/280/160?random=4" alt="Smoothie">
+                    <div class="recipe-card-content">
+                      <h3>Green Smoothie</h3>
+                      <p>Nutritious breakfast smoothie</p>
+                      <div class="recipe-card-meta">
+                        <span>5 mins</span>
+                        <span>4 ingredients</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Popular -->
+              <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Popular</h3>
+                <div class="carousel">
+                  <div class="recipe-card">
+                    <img src="https://picsum.photos/280/160?random=5" alt="Pizza">
+                    <div class="recipe-card-content">
+                      <h3>Homemade Pizza</h3>
+                      <p>Easy homemade pizza recipe</p>
+                      <div class="recipe-card-meta">
+                        <span>30 mins</span>
+                        <span>8 ingredients</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="recipe-card">
+                    <img src="https://picsum.photos/280/160?random=6" alt="Stir Fry">
+                    <div class="recipe-card-content">
+                      <h3>Quick Stir Fry</h3>
+                      <p>Fast and flavorful stir fry</p>
+                      <div class="recipe-card-meta">
+                        <span>20 mins</span>
+                        <span>6 ingredients</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Navigation -->
+          <nav class="bottom-nav safe-area">
+            <button class="flex flex-col items-center space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              <span class="text-xs text-primary font-medium">Home</span>
+            </button>
+            <button class="flex flex-col items-center space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+              <span class="text-xs text-gray-400">Ingredients</span>
+            </button>
+            <button class="flex flex-col items-center space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span class="text-xs text-gray-400">Saved</span>
+            </button>
+            <button class="flex flex-col items-center space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span class="text-xs text-gray-400">Profile</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Ingredients Page -->
+    <div class="ml-8">
+      <!-- Main-screen -->
+      <div class="flex flex-col items-center mb-4">
+        <!-- Ingredients Section -->
+        <div class="flex flex-col items-center">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">Ingredients</h2>
+          <div class="mobile-frame">
+            <div class="page">
+              <!-- Menu Button -->
+              <div class="bg-white px-4 pt-3 safe-area">
+                <button class="menu-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Header -->
+              <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+                <h1 class="text-2xl font-bold text-gray-800">My Kitchen</h1>
+                <p class="text-sm text-gray-500 mt-1">Manage your ingredients and preferences</p>
+              </div>
+
+              <!-- Main Content -->
+              <div class="content-wrapper p-4 pb-10">
+                <!-- Home Ingredients Section -->
+                <div class="mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Home Ingredients</h3>
+                    <button class="text-primary text-sm font-medium">View All</button>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 shadow-sm">
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-primary/10 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Chicken Breast</h3>
+                            <p class="text-sm text-gray-500">500g • Expires in 3 days</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-primary/10 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Brown Rice</h3>
+                            <p class="text-sm text-gray-500">1kg • Expires in 30 days</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                        <div class="flex items-center space-x-2">
+                          <span class="text-sm text-gray-500">+3 more items</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Food Restrictions Section -->
+                <div class="mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Food Restrictions</h3>
+                    <button class="text-primary text-sm font-medium">Edit</button>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 shadow-sm">
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-red-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Allergies</h3>
+                            <p class="text-sm text-gray-500">Peanuts, Shellfish</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-yellow-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Dietary Restrictions</h3>
+                            <p class="text-sm text-gray-500">Vegetarian</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                        <div class="flex items-center space-x-2">
+                          <span class="text-sm text-gray-500">+2 more restrictions</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Food Preferences Section -->
+                <div class="mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Food Preferences</h3>
+                    <button class="text-primary text-sm font-medium">Edit</button>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 shadow-sm">
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-green-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Favorite Cuisines</h3>
+                            <p class="text-sm text-gray-500">Italian, Mexican, Japanese</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-blue-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Cooking Level</h3>
+                            <p class="text-sm text-gray-500">Intermediate</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                        <div class="flex items-center space-x-2">
+                          <span class="text-sm text-gray-500">+3 more preferences</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Grocery List Section -->
+                <div class="mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Grocery List</h3>
+                    <button class="text-primary text-sm font-medium">Add Item</button>
+                  </div>
+                  <div class="bg-white rounded-xl p-4 shadow-sm">
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-purple-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Fresh Vegetables</h3>
+                            <p class="text-sm text-gray-500">Tomatoes, Lettuce, Carrots</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-purple-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Pantry Items</h3>
+                            <p class="text-sm text-gray-500">Pasta, Olive Oil, Spices</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                        <div class="flex items-center space-x-2">
+                          <span class="text-sm text-gray-500">+4 more items</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-nav safe-area">
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Home</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span class="text-xs text-primary font-medium">Ingredients</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Saved</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Profile</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Home Ingredients Sub-screen -->
+      <div class="flex flex-col items-center mb-4">
+        <!-- Ingredients Section -->
+        <div class="flex flex-col items-center">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">Ingredients / Home Ingredients</h2>
+          <div class="mobile-frame">
+            <div class="page">
+              <!-- Menu Button -->
+              <div class="bg-white px-4 pt-3 safe-area">
+                <button class="menu-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Header -->
+              <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+                <h1 class="text-2xl font-bold text-gray-800">My Kitchen Ingredients</h1>
+                <p class="text-sm text-gray-500 mt-1">Manage your ingredients and preferences</p>
+              </div>
+
+              <!-- Main Content -->
+              <div class="content-wrapper p-4 pb-10">
+                <!-- Quick Add Section -->
+                <div class="bg-white rounded-xl p-4 shadow-sm mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Quick Add</h3>
+                    <button class="text-primary text-sm font-medium">Clear All</button>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <button
+                      class="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">Chicken</button>
+                    <button
+                      class="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">Rice</button>
+                    <button
+                      class="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">Tomatoes</button>
+                    <button
+                      class="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">Onions</button>
+                    <button
+                      class="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">Garlic</button>
+                    <button class="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">+
+                      More</button>
+                  </div>
+                </div>
+
+                <!-- Search and Add Buttons -->
+                <div class="flex gap-3 mb-6">
+                  <div class="flex-1 relative">
+                    <input type="text" placeholder="Search ingredients..."
+                      class="w-full bg-white rounded-xl pl-10 pr-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <button class="bg-primary text-white p-3 rounded-xl font-medium flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </button>
+                  <button class="bg-primary text-white p-3 rounded-xl font-medium flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Ingredients List -->
+                <div class="space-y-4">
+                  <!-- Meat & Seafood Category -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Meat & Seafood</h3>
+                    <div class="space-y-2">
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Chicken Breast</h3>
+                              <p class="text-xs text-gray-500">Added 2 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Salmon</h3>
+                              <p class="text-xs text-gray-500">Added 1 day ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Ground Beef</h3>
+                              <p class="text-xs text-gray-500">Added 3 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Pork Chops</h3>
+                              <p class="text-xs text-gray-500">Added 4 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Shrimp</h3>
+                              <p class="text-xs text-gray-500">Added 1 day ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Tuna</h3>
+                              <p class="text-xs text-gray-500">Added 5 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Pantry Category -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Pantry</h3>
+                    <div class="space-y-2">
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Brown Rice</h3>
+                              <p class="text-xs text-gray-500">Added 1 week ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Pasta</h3>
+                              <p class="text-xs text-gray-500">Added 2 weeks ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Olive Oil</h3>
+                              <p class="text-xs text-gray-500">Added 3 weeks ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Canned Tomatoes</h3>
+                              <p class="text-xs text-gray-500">Added 1 month ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Black Beans</h3>
+                              <p class="text-xs text-gray-500">Added 2 weeks ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Quinoa</h3>
+                              <p class="text-xs text-gray-500">Added 1 week ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Produce Category -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Produce</h3>
+                    <div class="space-y-2">
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Tomatoes</h3>
+                              <p class="text-xs text-gray-500">Added 3 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Lettuce</h3>
+                              <p class="text-xs text-gray-500">Added 1 day ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Carrots</h3>
+                              <p class="text-xs text-gray-500">Added 4 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Bell Peppers</h3>
+                              <p class="text-xs text-gray-500">Added 2 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Onions</h3>
+                              <p class="text-xs text-gray-500">Added 5 days ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-primary/10 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Garlic</h3>
+                              <p class="text-xs text-gray-500">Added 1 week ago</p>
+                            </div>
+                          </div>
+                          <button class="text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-nav safe-area">
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Home</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span class="text-xs text-primary font-medium">Ingredients</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Saved</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Profile</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Food Restrictions Sub-screen -->
+      <div class="flex flex-col items-center mb-4">
+        <!-- Ingredients Section -->
+        <div class="flex flex-col items-center">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">Ingredients / Food Restrictions</h2>
+          <div class="mobile-frame">
+            <div class="page">
+              <!-- Menu Button -->
+              <div class="bg-white px-4 pt-3 safe-area">
+                <button class="menu-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Header -->
+              <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+                <h1 class="text-2xl font-bold text-gray-800">Food Restrictions</h1>
+                <p class="text-sm text-gray-500 mt-1">Manage your dietary restrictions and allergies</p>
+              </div>
+
+              <!-- Main Content -->
+              <div class="content-wrapper p-4 pb-10">
+                <!-- Allergies Section -->
+                <div class="mb-6">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Allergies</h3>
+                  <div class="space-y-2">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-red-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Peanuts</h3>
+                            <p class="text-xs text-gray-500">Severe allergy</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-red-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Shellfish</h3>
+                            <p class="text-xs text-gray-500">Moderate allergy</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-red-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Dairy</h3>
+                            <p class="text-xs text-gray-500">Mild allergy</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dietary Restrictions Section -->
+                <div class="mb-6">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Dietary Restrictions</h3>
+                  <div class="space-y-2">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-yellow-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Vegetarian</h3>
+                            <p class="text-xs text-gray-500">No meat, fish, or poultry</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-yellow-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Gluten-Free</h3>
+                            <p class="text-xs text-gray-500">No wheat, barley, or rye</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Add New Restriction Button -->
+                <button
+                  class="w-full bg-white rounded-xl p-4 shadow-sm flex items-center justify-center space-x-2 text-primary font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                  <span>Add New Restriction</span>
+                </button>
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-nav safe-area">
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Home</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span class="text-xs text-primary font-medium">Ingredients</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Saved</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Profile</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Preferences Sub-screen -->
+      <div class="flex flex-col items-center mb-4">
+        <!-- Ingredients Section -->
+        <div class="flex flex-col items-center">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">Ingredients / Food Preferences</h2>
+          <div class="mobile-frame">
+            <div class="page">
+              <!-- Menu Button -->
+              <div class="bg-white px-4 pt-3 safe-area">
+                <button class="menu-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Header -->
+              <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+                <h1 class="text-2xl font-bold text-gray-800">Food Preferences</h1>
+                <p class="text-sm text-gray-500 mt-1">Customize your culinary experience</p>
+              </div>
+
+              <!-- Main Content -->
+              <div class="content-wrapper p-4 pb-10">
+                <!-- Favorite Cuisines Section -->
+                <div class="mb-6">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Favorite Cuisines</h3>
+                  <div class="space-y-2">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-green-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Italian</h3>
+                            <p class="text-xs text-gray-500">Pasta, Pizza, Mediterranean</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-green-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Mexican</h3>
+                            <p class="text-xs text-gray-500">Tacos, Burritos, Enchiladas</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-green-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Japanese</h3>
+                            <p class="text-xs text-gray-500">Sushi, Ramen, Tempura</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cooking Level Section -->
+                <div class="mb-6">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Cooking Level</h3>
+                  <div class="space-y-2">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-blue-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Intermediate</h3>
+                            <p class="text-xs text-gray-500">Comfortable with most techniques</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cooking Time Preferences -->
+                <div class="mb-6">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Cooking Time</h3>
+                  <div class="space-y-2">
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-purple-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Quick Meals</h3>
+                            <p class="text-xs text-gray-500">Under 30 minutes</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow-sm">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                          <div class="bg-purple-100 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-500" fill="none"
+                              viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 class="text-gray-800 font-medium">Weekend Projects</h3>
+                            <p class="text-xs text-gray-500">Over 1 hour</p>
+                          </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-gray-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Add New Preference Button -->
+                <button
+                  class="w-full bg-white rounded-xl p-4 shadow-sm flex items-center justify-center space-x-2 text-primary font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                  <span>Add New Preference</span>
+                </button>
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-nav safe-area">
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Home</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span class="text-xs text-primary font-medium">Ingredients</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Saved</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Profile</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Grocery List Sub-screen -->
+      <div class="flex flex-col items-center mb-4">
+        <!-- Ingredients Section -->
+        <div class="flex flex-col items-center">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">Ingredients / Grocery List</h2>
+          <div class="mobile-frame">
+            <div class="page">
+              <!-- Menu Button -->
+              <div class="bg-white px-4 pt-3 safe-area">
+                <button class="menu-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Header -->
+              <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+                <h1 class="text-2xl font-bold text-gray-800">Grocery List</h1>
+                <p class="text-sm text-gray-500 mt-1">Plan your shopping trip</p>
+              </div>
+
+              <!-- Main Content -->
+              <div class="content-wrapper p-4 pb-10">
+                <!-- Quick Add Section -->
+                <div class="bg-white rounded-xl p-4 shadow-sm mb-6">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Quick Add</h3>
+                    <button class="text-purple-600 text-sm font-medium">Clear All</button>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <button
+                      class="px-3 py-1.5 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">Milk</button>
+                    <button
+                      class="px-3 py-1.5 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">Bread</button>
+                    <button
+                      class="px-3 py-1.5 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">Eggs</button>
+                    <button
+                      class="px-3 py-1.5 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">Butter</button>
+                    <button class="px-3 py-1.5 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">+
+                      More</button>
+                  </div>
+                </div>
+
+                <!-- Search and Add Buttons -->
+                <div class="flex gap-3 mb-6">
+                  <div class="flex-1 relative">
+                    <input type="text" placeholder="Search items..."
+                      class="w-full bg-white rounded-xl pl-10 pr-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-200 border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <button class="bg-purple-600 text-white p-3 rounded-xl font-medium flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </button>
+                  <button class="bg-purple-600 text-white p-3 rounded-xl font-medium flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Grocery List -->
+                <div class="space-y-4">
+                  <!-- Fresh Produce Section -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Fresh Produce</h3>
+                    <div class="space-y-2">
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-green-100 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Tomatoes</h3>
+                              <p class="text-xs text-gray-500">6 units</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-4">
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-green-100 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Lettuce</h3>
+                              <p class="text-xs text-gray-500">2 heads</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-4">
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dairy Section -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Dairy</h3>
+                    <div class="space-y-2">
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-blue-100 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Milk</h3>
+                              <p class="text-xs text-gray-500">2 gallons</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-4">
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-blue-100 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Eggs</h3>
+                              <p class="text-xs text-gray-500">1 dozen</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-4">
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Pantry Section -->
+                  <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Pantry</h3>
+                    <div class="space-y-2">
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-orange-100 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Bread</h3>
+                              <p class="text-xs text-gray-500">2 loaves</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-4">
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white rounded-xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-orange-100 p-2 rounded-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 class="text-gray-800 font-medium">Pasta</h3>
+                              <p class="text-xs text-gray-500">3 boxes</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-4">
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-nav safe-area">
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Home</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span class="text-xs text-primary font-medium">Ingredients</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Saved</span>
+                </button>
+                <button class="flex flex-col items-center space-y-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span class="text-xs text-gray-400">Profile</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saved Recipes Page -->
+    <div class="ml-8">
+      <div class="flex flex-col items-center">
+        <h2 class="text-lg font-semibold text-gray-700 mb-2">Saved Recipes</h2>
+        <div class="mobile-frame">
+          <div class="page">
+            <!-- Menu Button -->
+            <div class="bg-white px-4 pt-3 safe-area">
+              <button class="menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Header -->
+            <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+              <h1 class="text-2xl font-bold text-gray-800">Saved Recipes</h1>
+              <p class="text-sm text-gray-500 mt-1">Your favorite recipes</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content-wrapper p-4 pb-10">
+              <div class="flex items-start gap-1">
+                <!-- Search Bar -->
+                <div class="relative flex-1">
+                  <input type="text" placeholder="Search saved recipes..."
+                    class="w-full bg-white rounded-xl pl-10 pr-4 py-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 border border-gray-100">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+
+                <!-- Filter Button with Dropdown -->
+                <div class="relative h-[52px]">
+                  <button onclick="toggleFilterDropdown()"
+                    class="flex items-center justify-center gap-2 px-4 h-[50px] bg-white rounded-xl saved-recipes-filter-button border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                  </button>
+                  <!-- Dropdown Menu -->
+                  <div id="filterDropdown"
+                    class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                    <button class="w-full text-left px-4 py-2 saved-recipes-filter-button">All
+                      Recipes</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-filter-button">Quick
+                      Meals</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-filter-button">Healthy</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-filter-button">Vegetarian</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-filter-button">Desserts</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sort Button -->
+              <div class="flex justify-end pb-4 pt-2">
+                <div class="relative">
+                  <button onclick="toggleSortDropdown()"
+                    class="flex items-center gap-2 px-4 py-3 bg-white rounded-xl saved-recipes-sortby-button border border-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 4h13M3 8h9M3 12h5M3 16h7M3 20h11" />
+                    </svg>
+                    Sort by
+                  </button>
+                  <!-- Sort Dropdown Menu -->
+                  <div id="sortDropdown"
+                    class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                    <button class="w-full text-left px-4 py-2 saved-recipes-sortby-button">Recently
+                      Saved</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-sortby-button">Name
+                      (A-Z)</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-sortby-button">Cooking
+                      Time</button>
+                    <button class="w-full text-left px-4 py-2 saved-recipes-sortby-button">Servings</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Add this script at the end of the body -->
+              <script>
+                function toggleFilterDropdown() {
+                  const dropdown = document.getElementById('filterDropdown');
+                  const sortDropdown = document.getElementById('sortDropdown');
+                  dropdown.classList.toggle('hidden');
+                  sortDropdown.classList.add('hidden');
+                }
+
+                function toggleSortDropdown() {
+                  const dropdown = document.getElementById('sortDropdown');
+                  const filterDropdown = document.getElementById('filterDropdown');
+                  dropdown.classList.toggle('hidden');
+                  filterDropdown.classList.add('hidden');
+                }
+
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', function (event) {
+                  const filterDropdown = document.getElementById('filterDropdown');
+                  const sortDropdown = document.getElementById('sortDropdown');
+                  const filterButton = event.target.closest('[onclick="toggleFilterDropdown()"]');
+                  const sortButton = event.target.closest('[onclick="toggleSortDropdown()"]');
+
+                  if (!filterButton && !sortButton) {
+                    filterDropdown.classList.add('hidden');
+                    sortDropdown.classList.add('hidden');
+                  }
+                });
+              </script>
+
+              <!-- Saved Recipes Grid -->
+              <div class="space-y-4">
+                <!-- Recipe Card 1 -->
+                <div class="recipe-card flex">
+                  <div class="relative w-32 flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Healthy Salad"
+                      class="w-full h-32 object-cover rounded-l-xl">
+                    <button class="absolute top-2 right-2 p-2 bg-white/90 rounded-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path
+                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4 flex-1">
+                    <h3 class="text-gray-800 font-medium">Healthy Salad</h3>
+                    <p class="text-gray-500 text-sm">Fresh and nutritious</p>
+                    <div class="recipe-card-meta">
+                      <span>30 min</span>
+                      <span>4 servings</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recipe Card 2 -->
+                <div class="recipe-card flex">
+                  <div class="relative w-32 flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Pasta Dish"
+                      class="w-full h-32 object-cover rounded-l-xl">
+                    <button class="absolute top-2 right-2 p-2 bg-white/90 rounded-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path
+                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4 flex-1">
+                    <h3 class="text-gray-800 font-medium">Pasta Dish</h3>
+                    <p class="text-gray-500 text-sm">Italian cuisine</p>
+                    <div class="recipe-card-meta">
+                      <span>45 min</span>
+                      <span>2 servings</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recipe Card 3 -->
+                <div class="recipe-card flex">
+                  <div class="relative w-32 flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Grilled Chicken"
+                      class="w-full h-32 object-cover rounded-l-xl">
+                    <button class="absolute top-2 right-2 p-2 bg-white/90 rounded-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path
+                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4 flex-1">
+                    <h3 class="text-gray-800 font-medium">Grilled Chicken</h3>
+                    <p class="text-gray-500 text-sm">High protein meal</p>
+                    <div class="recipe-card-meta">
+                      <span>40 min</span>
+                      <span>3 servings</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recipe Card 4 -->
+                <div class="recipe-card flex">
+                  <div class="relative w-32 flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Vegetable Soup"
+                      class="w-full h-32 object-cover rounded-l-xl">
+                    <button class="absolute top-2 right-2 p-2 bg-white/90 rounded-full">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path
+                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4 flex-1">
+                    <h3 class="text-gray-800 font-medium">Vegetable Soup</h3>
+                    <p class="text-gray-500 text-sm">Comfort food</p>
+                    <div class="recipe-card-meta">
+                      <span>60 min</span>
+                      <span>6 servings</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav safe-area">
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span class="text-xs text-gray-400">Home</span>
+              </button>
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span class="text-xs text-gray-400">Ingredients</span>
+              </button>
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <span class="text-xs text-primary font-medium">Saved</span>
+              </button>
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span class="text-xs text-gray-400">Profile</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div class="ml-8">
+      <div class="flex flex-col items-center">
+        <h2 class="text-lg font-semibold text-gray-700 mb-2">Profile</h2>
+        <div class="mobile-frame">
+          <div class="page">
+            <!-- Menu Button -->
+            <div class="bg-white px-4 pt-3 safe-area">
+              <button class="menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Header -->
+            <div class="bg-white px-4 pb-4 safe-area border-b border-gray-100">
+              <h1 class="text-2xl font-bold text-gray-800">Profile</h1>
+              <p class="text-sm text-gray-500 mt-1">Manage your account settings</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="content-wrapper p-4 pb-10">
+              <!-- Profile Section -->
+              <div class="bg-white rounded-xl p-6 mb-6">
+                <div class="flex items-center gap-4">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" alt="Profile"
+                      class="w-24 h-24 rounded-full object-cover">
+                    <button class="absolute bottom-0 right-0 p-2 bg-white rounded-full shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div>
+                    <h2 class="text-xl font-semibold text-gray-800">John Doe</h2>
+                    <p class="text-gray-500">john.doe@example.com</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Account Settings Section -->
+              <div class="bg-white rounded-xl mb-6 profile-section">
+                <h3 class="text-lg font-semibold text-gray-800 px-6 py-4 border-b border-gray-100">Account Settings</h3>
+                <div class="">
+                  <button class="w-full flex items-center justify-between px-6 py-4 ">
+                    <div class="flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span class="text-gray-600">Edit Profile</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  <div class="border-t border-gray-100 mx-4"></div>
+                  <button class="w-full flex items-center justify-between px-6 py-4 ">
+                    <div class="flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                      </svg>
+                      <span class="text-gray-600">Change Password</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  <div class="border-t border-gray-100 mx-4"></div>
+                  <button class="w-full flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                      </svg>
+                      <span class="text-gray-600">Notifications</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Preferences Section -->
+              <div class="bg-white rounded-xl mb-6 profile-section">
+                <h3 class="text-lg font-semibold text-gray-800 px-6 py-4 border-b border-gray-100">Preferences</h3>
+                <div class="">
+                  <div class="px-6 py-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-gray-600">Language</span>
+                      <select class="bg-gray-50 rounded-lg px-3 py-1.5 text-gray-600 border border-gray-200">
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                        <option>German</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="border-t border-gray-100 mx-4"></div>
+                  <div class="px-6 py-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-gray-600">Theme</span>
+                      <select class="bg-gray-50 rounded-lg px-3 py-1.5 text-gray-600 border border-gray-200">
+                        <option>Light</option>
+                        <option>Dark</option>
+                        <option>System</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Support Section -->
+              <div class="bg-white rounded-xl mb-6 profile-section">
+                <h3 class="text-lg font-semibold text-gray-800 px-6 py-4 border-b border-gray-100">Support</h3>
+                <div class="">
+                  <button class="w-full flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span class="text-gray-600">Help Center</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  <div class="border-t border-gray-100 mx-4"></div>
+                  <button class="w-full flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <span class="text-gray-600">Contact Us</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  <div class="border-t border-gray-100 mx-4"></div>
+                  <button class="w-full flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      <span class="text-gray-600">Privacy Policy</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Sign Out Button -->
+              <button class="w-full bg-red-50 text-red-600 rounded-xl py-4 font-medium hover:bg-red-100">
+                Sign Out
+              </button>
+
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav safe-area">
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span class="text-xs text-gray-400">Home</span>
+              </button>
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span class="text-xs text-gray-400">Ingredients</span>
+              </button>
+              <button class="flex flex-col items-center space-y-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <span class="text-xs text-gray-400">Saved</span>
+              </button>
+              <button class="flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span class="text-xs mt-1">Profile</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme switching functionality
+    const lightModeBtn = document.getElementById('lightMode');
+    const darkModeBtn = document.getElementById('darkMode');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      lightModeBtn.classList.remove('active');
+      darkModeBtn.classList.add('active');
+    }
+
+    lightModeBtn.addEventListener('click', () => {
+      body.classList.remove('dark-mode');
+      lightModeBtn.classList.add('active');
+      darkModeBtn.classList.remove('active');
+      localStorage.setItem('theme', 'light');
+    });
+
+    darkModeBtn.addEventListener('click', () => {
+      body.classList.add('dark-mode');
+      lightModeBtn.classList.remove('active');
+      darkModeBtn.classList.add('active');
+      localStorage.setItem('theme', 'dark');
+    });
+
+    // ... existing JavaScript code ...
+  </script>
+</body>
+
+</html>

@@ -59,9 +59,9 @@ export const ButtonFrame = styled(View, {
       },
       secondary: {
         borderWidth: 1,
-        borderColor: '$neutral',
-        hoverStyle: { borderColor: '$neutralLight' },
-        pressStyle: { borderColor: '$neutralDark' },
+        borderColor: '$border',
+        hoverStyle: { borderColor: '$border' },
+        pressStyle: { borderColor: '$border' },
       },
       tertiary: {
         bg: '$secundary',
@@ -84,7 +84,7 @@ export const ButtonText = styled(SizableText, {
         color: 'white',
       },
       secondary: {
-        color: '$neutralBase',
+        color: '$text1',
       },
       tertiary: {
         color: 'white',
@@ -101,7 +101,7 @@ const iconSizeStyle = {
 
 const iconVariantColorStyle = {
   primary: 'white',
-  secondary: '$neutral',
+  secondary: '$text1',
   tertiary: 'white',
 };
 

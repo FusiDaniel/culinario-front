@@ -4196,9 +4196,21 @@ __metadata:
   resolution: "@repo/ui@workspace:packages/ui"
   dependencies:
     "@repo/config": "npm:0.0.1"
-    "@tamagui/build": "npm:^1.125.32"
-    "@tamagui/toast": "npm:^1.125.32"
-    tamagui: "npm:^1.125.32"
+    "@tamagui/build": "npm:^1.125.26"
+    "@tamagui/toast": "npm:^1.125.26"
+    tamagui: "npm:^1.125.26"
+  languageName: unknown
+  linkType: soft
+
+"@repo/utils@npm:0.0.1, @repo/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@repo/utils@workspace:packages/utils"
+  dependencies:
+    "@repo/config": "npm:0.0.1"
+    "@tamagui/build": "npm:^1.125.26"
+    expo-router: "npm:4.0.17"
+    next: "npm:14.2.14"
+    tamagui: "npm:^1.125.26"
   languageName: unknown
   linkType: soft
 
@@ -7616,12 +7628,12 @@ __metadata:
   dependencies:
     "@react-navigation/native": "npm:^6.1.17"
     "@repo/ui": "npm:0.0.1"
-    "@tamagui/animations-react-native": "npm:^1.125.32"
-    "@tamagui/colors": "npm:^1.125.32"
-    "@tamagui/font-inter": "npm:^1.125.32"
-    "@tamagui/lucide-icons": "npm:^1.125.32"
-    "@tamagui/shorthands": "npm:^1.125.32"
-    "@tamagui/themes": "npm:^1.125.32"
+    "@tamagui/animations-react-native": "npm:^1.125.26"
+    "@tamagui/colors": "npm:^1.125.26"
+    "@tamagui/font-inter": "npm:^1.125.26"
+    "@tamagui/lucide-icons": "npm:^1.125.26"
+    "@tamagui/shorthands": "npm:^1.125.26"
+    "@tamagui/themes": "npm:^1.125.26"
     "@types/react": "npm:^18.3.3"
     "@types/react-native": "npm:^0.73.0"
     burnt: "npm:^0.12.2"
@@ -11717,7 +11729,7 @@ __metadata:
     "@react-navigation/bottom-tabs": "npm:^7.2.0"
     "@react-navigation/native": "npm:^7.0.14"
     "@repo/ui": "npm:0.0.1"
-    "@tamagui/babel-plugin": "npm:^1.125.32"
+    "@tamagui/babel-plugin": "npm:^1.125.26"
     app: "npm:0.0.0"
     babel-plugin-module-resolver: "npm:^5.0.2"
     burnt: "npm:^0.12.2"

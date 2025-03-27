@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Role
+You are a **senior front-end developer**.
+
+## Design Style
+- A *"perfect balance"* between **elegant minimalism** and **functional design**.
+- **Soft, refreshing gradient colors** that seamlessly integrate with the brand palette.
+- **Well-proportioned white space** for a clean layout.
+- **Light and immersive** user experience.
+- **Clear information hierarchy** using **subtle shadows and modular card layouts**.
+- *"Natural focus"* on core functionalities.
+- **Refined rounded corners**.
+- **Delicate micro-interactions**.
+- **Comfortable visual proportions**.
+- *"Accent colors"* chosen based on the app type.
+- Project needs to work in both light and dark mode, so choose colors accordingly
+
+## Technical Specifications
+1. **Icons**: Use an **@tamagui/lucide-icons** (icons **must not** have background blocks, baseplates, or outer frames).
+2. **Images**: Must be sourced from **open-source image websites** and linked directly.
+3. **Styles**: Use **"tamagui"** for styling.
+4. **All text should be only black or white**.
+5. Theme colors "neutralBase", "neutralMid" and "neutralOposite" must be used when the neutral colored element changes color between dark and light mode.
+6. For text use SizableText or H[n], using only the following sizes: h1, h2, body1, body2, body3 defined in the tamagui config.
+7. Uses these shorthand to style the tamagui components:
+    // text
+        text: 'textAlign',
+    // view
+        b: 'bottom',
+        bg: 'backgroundColor',
+        content: 'alignContent',
+        grow: 'flexGrow',
+        items: 'alignItems',
+        justify: 'justifyContent',
+        l: 'left',
+        m: 'margin',
+        maxH: 'maxHeight',
+        maxW: 'maxWidth',
+        mb: 'marginBottom',
+        minH: 'minHeight',
+        minW: 'minWidth',
+        ml: 'marginLeft',
+        mr: 'marginRight',
+        mt: 'marginTop',
+        mx: 'marginHorizontal',
+        my: 'marginVertical',
+        p: 'padding',
+        pb: 'paddingBottom',
+        pl: 'paddingLeft',
+        pr: 'paddingRight',
+        pt: 'paddingTop',
+        px: 'paddingHorizontal',
+        py: 'paddingVertical',
+        r: 'right',
+        rounded: 'borderRadius',
+        select: 'userSelect',
+        self: 'alignSelf',
+        shrink: 'flexShrink',
+        t: 'top',
+        z: 'zIndex'
+8. Define functions using "const".
+
+## Project meaning
+This is a **Culinary app to help people find recipies using the ingredients they already have at home**.

@@ -26,7 +26,7 @@ export const lineHeight = {
 };
 
 export const font = createFont({
-  family: 'Blinker, Helvetica, Arial, sans-serif',
+  family: 'DMSans, Helvetica, Arial, sans-serif',
   size,
   weight,
   lineHeight: Object.entries(lineHeight).reduce((acc, [key, value]) => {
@@ -34,10 +34,10 @@ export const font = createFont({
     return acc;
   }, {} as Record<keyof typeof size, number>),
   face: {
-    300: { normal: 'BlinkerLight' },
-    400: { normal: 'BlinkerRegular' },
-    600: { normal: 'BlinkerSemibold' },
-    700: { normal: 'BlinkerBold' },
-    800: { normal: 'BlinkerExtrabold' },
+    300: { normal: 'DMSansLight' },
+    400: { normal: 'DMSansRegular' },
+    600: { normal: 'DMSansSemibold' },
+    700: { normal: 'DMSansBold' },
+    800: { normal: 'DMSansExtrabold' },
   },
 });

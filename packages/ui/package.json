@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@repo/config": "0.0.1",
+    "@repo/utils": "0.0.1",
     "@tamagui/toast": "^1.125.32",
     "tamagui": "^1.125.32"
   },
