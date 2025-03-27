@@ -1,6 +1,8 @@
 export { Button } from './Button';
 export * from './CustomToast';
 export * from './MyComponent';
+export * from './NativeScrollView';
+export * from './Navbar';
 export * from './SwitchRouterButton';
 export * from './SwitchThemeButton';
 export { config } from '@repo/config';

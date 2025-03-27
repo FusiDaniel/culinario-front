@@ -38,11 +38,11 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/Blinker-Bold.ttf",
-            "./assets/fonts/Blinker-ExtraBold.ttf",
-            "./assets/fonts/Blinker-Light.ttf",
-            "./assets/fonts/Blinker-Regular.ttf",
-            "./assets/fonts/Blinker-SemiBold.ttf"
+            "./assets/fonts/DMSans-Bold.ttf",
+            "./assets/fonts/DMSans-ExtraBold.ttf",
+            "./assets/fonts/DMSans-Light.ttf",
+            "./assets/fonts/DMSans-Regular.ttf",
+            "./assets/fonts/DMSans-SemiBold.ttf"
           ]
         }
       ]

@@ -18,35 +18,35 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <head>
       <link
         rel="preload"
-        href="/fonts/Blinker-Bold.ttf"
+        href="/fonts/DMSans-Bold.ttf"
         as="font"
         type="font/ttf"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/Blinker-ExtraBold.ttf"
+        href="/fonts/DMSans-ExtraBold.ttf"
         as="font"
         type="font/ttf"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/Blinker-Light.ttf"
+        href="/fonts/DMSans-Light.ttf"
         as="font"
         type="font/ttf"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/Blinker-Regular.ttf"
+        href="/fonts/DMSans-Regular.ttf"
         as="font"
         type="font/ttf"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/Blinker-SemiBold.ttf"
+        href="/fonts/DMSans-SemiBold.ttf"
         as="font"
         type="font/ttf"
         crossOrigin="anonymous"
