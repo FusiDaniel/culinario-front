@@ -17,7 +17,7 @@ const NavItem = ({ href, icon: Icon, isActive, label }: NavItemProps) => {
   const linkProps = useLink({ href });
 
   return (
-    <Stack items="center" flex={1} justify="center" gap={4}  {...linkProps}>
+    <Stack items="center" flexBasis={0} grow={1} justify="center" gap={4} {...linkProps}>
       <Icon
         width={24}
         height={24}
@@ -41,12 +41,7 @@ const NavbarComponent = () => {
     <XStack
       width="100%"
       height={NAVBAR_HEIGHT}
-      px={16}
       bg="$bg2"
-      justify="space-around"
-      items="center"
-      borderTopColor="$border"
-      borderTopWidth={1}
     >
       <NavItem
         icon={Home}
