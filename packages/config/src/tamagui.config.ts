@@ -3,6 +3,7 @@ import { createTamagui } from 'tamagui';
 import { animations } from './animations';
 import { font } from './fonts';
 import { themes } from './themes';
+import { tokens } from './tokens';
 
 export const config = createTamagui({
   ...defaultConfig,
@@ -13,4 +14,5 @@ export const config = createTamagui({
     heading: font,
   },
   themes,
+  tokens,
 });

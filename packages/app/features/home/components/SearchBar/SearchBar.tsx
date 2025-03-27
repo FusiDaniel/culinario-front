@@ -19,8 +19,6 @@ export const SearchBar = () => {
       >
         <Search
           size={20}
-          width={20}
-          height={20}
           color="$text2"
           l={12}
           z={1}
@@ -57,7 +55,7 @@ export const SearchBar = () => {
         borderWidth={1}
         borderColor="$border"
       >
-        <ListFilter size={20} width={20} height={20} color="$text2" />
+        <ListFilter size={20} color="$text2" />
       </View>
     </XStack>
   );

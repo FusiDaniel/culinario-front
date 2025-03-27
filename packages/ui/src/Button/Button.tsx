@@ -1,6 +1,6 @@
 import type { IconProps } from '@tamagui/helpers-icon';
 import type { NamedExoticComponent } from 'react';
-import type { ButtonProps as TButtonProps } from 'tamagui';
+import type { ColorTokens, ButtonProps as TButtonProps } from 'tamagui';
 import type { SizeTokens } from './style';
 import { useLink } from 'solito/navigation';
 import { withStaticProperties } from 'tamagui';
@@ -21,6 +21,7 @@ export type ButtonProps = Omit<TButtonProps, 'rounded' | 'size' | 'variant'> & {
   scroll?: boolean;
   size?: SizeTokens;
   variant?: 'primary' | 'secondary' | 'tertiary';
+  color?: ColorTokens
 };
 
 const Btn = withStaticProperties(ButtonFrame, {
@@ -39,6 +40,7 @@ export const Button = ({
   scroll,
   size = 'MD',
   variant = 'primary',
+  color,
   ...rest
 }: ButtonProps) => {
   const linkProps = useLink({ experimental, href, replace, scroll });
@@ -46,17 +48,17 @@ export const Button = ({
   return (
     <Btn sizeStyle={size} variantStyle={variant} roundedStyle={rounded} {...href && linkProps} {...rest}>
       {LeftIcon && (
-        <Btn.Icon>
+        <Btn.Icon color={color}>
           <LeftIcon />
         </Btn.Icon>
       )}
       {children && (
-        <Btn.Text>
+        <Btn.Text color={color}>
           {children}
         </Btn.Text>
       )}
       {RightIcon && (
-        <Btn.Icon>
+        <Btn.Icon color={color} >
           <RightIcon />
         </Btn.Icon>
       )}
