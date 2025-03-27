@@ -1,3 +1,4 @@
-import { ScrollView } from "tamagui"
+import type { ScrollViewProps } from 'tamagui';
+import { ScrollView } from 'tamagui';
 
-export const NativeScrollView = ScrollView;
+export const NativeScrollView = (props: ScrollViewProps) => <ScrollView flex={1} contentContainerStyle={{ flex: 1 }} {...props} />;

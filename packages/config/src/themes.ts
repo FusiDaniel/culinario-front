@@ -87,7 +87,7 @@ const builtThemes = createThemes({
   base: {
     extra: {
       dark: {
-        background: '#1E1E1E',
+        background: '#2d2d2d',
         bg1: '#2d2d2d',
         bg2: '#3d3d3d',
         border: '#4d4d4d',
