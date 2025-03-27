@@ -10,11 +10,11 @@ export const size = {
 };
 
 export const weight = {
-  h1: 700,
-  h2: 700,
-  body1: 400,
-  body2: 400,
-  body3: 300,
+  h1: '700',
+  h2: '700',
+  body1: '400',
+  body2: '400',
+  body3: '300',
 };
 
 export const lineHeight = {

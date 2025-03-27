@@ -1,15 +1,15 @@
 import type { ThemeTokens } from 'tamagui';
-import { NAVBAR_HEIGHT, SizableText, useTheme, YStack } from '@repo/ui';
+import { getTokens, NAVBAR_HEIGHT, SizableText, useTheme, YStack } from '@repo/ui';
 import { Heart, Home, ListChecks, User } from '@tamagui/lucide-icons';
 import { Tabs } from 'expo-router';
 
 const TabLayout = () => {
   const theme = useTheme();
-
+  const tokens = getTokens();
   return (
     <Tabs screenOptions={{
       headerShown: false,
-      tabBarActiveTintColor: theme.primary.val,
+      tabBarActiveTintColor: tokens.color.primary.val,
       tabBarButton: ({ children, style: _style, ...props }) => (
         // @ts-expect-error this is a workaround for the type error
         <YStack

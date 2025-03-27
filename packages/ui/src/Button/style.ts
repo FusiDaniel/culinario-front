@@ -1,7 +1,7 @@
 /* eslint-disable perfectionist/sort-objects */
 import type { JSXElementConstructor, ReactElement } from 'react';
 import { cloneElement, useContext } from 'react';
-import { createStyledContext, SizableText, styled, View } from 'tamagui';
+import { ColorTokens, createStyledContext, SizableText, styled, View } from 'tamagui';
 
 export type SizeTokens = 'LG' | 'MD' | 'SM';
 
@@ -105,7 +105,7 @@ const iconVariantColorStyle = {
   tertiary: 'white',
 };
 
-export const ButtonIcon = ({ children }: { children: ReactElement<any, JSXElementConstructor<any>> }) => {
+export const ButtonIcon = ({ children, color }: { children: ReactElement<any, JSXElementConstructor<any>>, color?: ColorTokens }) => {
   const { sizeStyle, variantStyle } = useContext<ButtonContextType>(ButtonContext);
 
   if (!children)
@@ -116,6 +116,6 @@ export const ButtonIcon = ({ children }: { children: ReactElement<any, JSXElemen
     width: iconSizeStyle[sizeStyle],
     height: iconSizeStyle[sizeStyle],
     size: iconSizeStyle[sizeStyle],
-    color: iconVariantColorStyle[variantStyle],
+    color: color ?? iconVariantColorStyle[variantStyle],
   });
 };

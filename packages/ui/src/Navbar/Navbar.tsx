@@ -17,7 +17,17 @@ const NavItem = ({ href, icon: Icon, isActive, label }: NavItemProps) => {
   const linkProps = useLink({ href });
 
   return (
-    <Stack items="center" flexBasis={0} grow={1} justify="center" gap={4} {...linkProps}>
+    <Stack
+      items="center"
+      flexBasis={0}
+      grow={1}
+      justify="center"
+      gap={4}
+      cursor="pointer"
+      tag="a"
+      $platform-web={{ textDecoration: 'none' }}
+      {...linkProps}
+    >
       <Icon
         width={24}
         height={24}

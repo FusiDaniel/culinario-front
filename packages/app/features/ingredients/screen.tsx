@@ -1,5 +1,4 @@
 import {
-  H1,
   NativeScrollView,
   SizableText,
   SwitchThemeButton,
@@ -12,12 +11,14 @@ export const IngredientsScreen = () => (
   <NativeScrollView>
     <YStack flex={1} px={24} py={32} bg="$bg1" gap={20}>
       <XStack justify="space-between" items="center">
-        <Menu />
-        <SwitchThemeButton />
+        <SizableText size="$h1">Ingredientes</SizableText>
+        <XStack gap="$4" items="center">
+          <SwitchThemeButton />
+          <Menu />
+        </XStack>
       </XStack>
-      <H1 size='$h1'>Ingredients</H1>
       <YStack>
-        {Array.from({ length: 100 }, (_, index) => (
+        {Array.from({ length: 11 }, (_, index) => (
           <SizableText key={index} size="$h1">
             {index + 1}
           </SizableText>
