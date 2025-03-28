@@ -3,10 +3,11 @@ import type { NamedExoticComponent } from 'react';
 import type { ColorTokens, ButtonProps as TButtonProps } from 'tamagui';
 import type { SizeTokens } from './style';
 import { useLink } from 'solito/navigation';
-import { withStaticProperties } from 'tamagui';
+import { View, withStaticProperties } from 'tamagui';
 import { ButtonFrame, ButtonIcon, ButtonText } from './style';
 
 export type ButtonProps = Omit<TButtonProps, 'rounded' | 'size' | 'variant'> & {
+  color?: ColorTokens;
   experimental?: {
     isNestedNavigator: boolean;
     nativeBehavior: 'stack-replace';
@@ -20,8 +21,7 @@ export type ButtonProps = Omit<TButtonProps, 'rounded' | 'size' | 'variant'> & {
   rounded?: boolean;
   scroll?: boolean;
   size?: SizeTokens;
-  variant?: 'primary' | 'secondary' | 'tertiary';
-  color?: ColorTokens
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'unstyled';
 };
 
 const Btn = withStaticProperties(ButtonFrame, {
@@ -31,6 +31,7 @@ const Btn = withStaticProperties(ButtonFrame, {
 
 export const Button = ({
   children,
+  color,
   experimental,
   href = '',
   leftIcon: LeftIcon,
@@ -40,13 +41,32 @@ export const Button = ({
   scroll,
   size = 'MD',
   variant = 'primary',
-  color,
   ...rest
 }: ButtonProps) => {
-  const linkProps = useLink({ experimental, href, replace, scroll });
+  const baseLinkProps = useLink({ experimental, href, replace, scroll });
+  const linkProps = {
+    ...baseLinkProps,
+    '$platform-web': { textDecoration: 'none' },
+    'tag': 'a',
+  };
+
+  if (variant === 'unstyled') {
+    return (
+      <View {...href && linkProps} {...rest}>
+        {children}
+      </View>
+    );
+  }
 
   return (
-    <Btn sizeStyle={size} variantStyle={variant} roundedStyle={rounded} {...href && linkProps} {...rest}>
+    <Btn
+      sizeStyle={size}
+      variantStyle={variant}
+      roundedStyle={rounded}
+      {...href && linkProps}
+      {...rest}
+      $platform-web={{ ...href && linkProps['$platform-web'], ...rest['$platform-web'] }}
+    >
       {LeftIcon && (
         <Btn.Icon color={color}>
           <LeftIcon />
@@ -58,7 +78,7 @@ export const Button = ({
         </Btn.Text>
       )}
       {RightIcon && (
-        <Btn.Icon color={color} >
+        <Btn.Icon color={color}>
           <RightIcon />
         </Btn.Icon>
       )}

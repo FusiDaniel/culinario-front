@@ -1,11 +1,12 @@
 /* eslint-disable perfectionist/sort-objects */
 import type { JSXElementConstructor, ReactElement } from 'react';
+import type { ColorTokens } from 'tamagui';
 import { cloneElement, useContext } from 'react';
-import { ColorTokens, createStyledContext, SizableText, styled, View } from 'tamagui';
+import { createStyledContext, SizableText, styled, XStack } from 'tamagui';
 
 export type SizeTokens = 'LG' | 'MD' | 'SM';
 
-export type Variants = 'primary' | 'secondary' | 'tertiary';
+export type Variants = 'primary' | 'secondary' | 'tertiary' | 'text' | 'unstyled';
 
 type ButtonContextType = {
   roundedStyle?: boolean;
@@ -19,14 +20,13 @@ export const ButtonContext = createStyledContext<ButtonContextType>({
   roundedStyle: false,
 });
 
-export const ButtonFrame = styled(View, {
+export const ButtonFrame = styled(XStack, {
   cursor: 'pointer',
   name: 'Button',
   context: ButtonContext,
-  flexDirection: 'row',
   items: 'center',
   justify: 'center',
-  rounded: 999,
+  rounded: '$max',
   px: 12,
   gap: 8,
   variants: {
@@ -68,6 +68,14 @@ export const ButtonFrame = styled(View, {
         hoverStyle: { bg: '$secundaryLight' },
         pressStyle: { bg: '$secundaryDark' },
       },
+      text: {
+        items: 'unset',
+        justify: 'unset',
+        rounded: 0,
+        px: 0,
+        gap: 0,
+        height: 'unset'
+      },
     },
   } as const,
 });
@@ -89,6 +97,12 @@ export const ButtonText = styled(SizableText, {
       tertiary: {
         color: 'white',
       },
+      text: {
+        color: '$text1',
+      },
+      unstyled: {
+        color: '$text1',
+      },
     },
   } as const,
 });
@@ -103,9 +117,11 @@ const iconVariantColorStyle = {
   primary: 'white',
   secondary: '$text1',
   tertiary: 'white',
+  text: '$text1',
+  unstyled: '$text1',
 };
 
-export const ButtonIcon = ({ children, color }: { children: ReactElement<any, JSXElementConstructor<any>>, color?: ColorTokens }) => {
+export const ButtonIcon = ({ children, color }: { children: ReactElement<any, JSXElementConstructor<any>>; color?: ColorTokens }) => {
   const { sizeStyle, variantStyle } = useContext<ButtonContextType>(ButtonContext);
 
   if (!children)

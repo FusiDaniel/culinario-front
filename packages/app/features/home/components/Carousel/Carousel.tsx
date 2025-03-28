@@ -39,12 +39,12 @@ type CarouselProps = {
 
 export const Carousel = ({ title }: CarouselProps) => (
   <YStack gap="$4">
-    <SizableText size="$h1" color="$text1">
+    <SizableText size="$h1" color="$text1" px="$6">
       {title}
     </SizableText>
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <XStack>
-        {quickMeals.map(({ description, id, imageUrl, ingredientsCount, time, title }) => (
+      <XStack gap="$4">
+        {quickMeals.map(({ description, id, imageUrl, ingredientsCount, time, title }, index) => (
           <RecipeCard
             key={id}
             title={title}
@@ -52,6 +52,8 @@ export const Carousel = ({ title }: CarouselProps) => (
             time={time}
             ingredientsCount={ingredientsCount}
             imageUrl={imageUrl}
+            ml={index === 0 ? '$6' : 0}
+            mr={index === quickMeals.length - 1 ? '$6' : 0}
           />
         ))}
       </XStack>

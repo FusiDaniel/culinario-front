@@ -1,7 +1,11 @@
+import type {
+  YStackProps,
+} from '@repo/ui';
 import {
-    Image, SizableText,
-    XStack,
-    YStack
+  Image,
+  SizableText,
+  XStack,
+  YStack,
 } from '@repo/ui';
 import { Apple, Clock } from '@tamagui/lucide-icons';
 
@@ -11,7 +15,7 @@ type RecipeCardProps = {
   ingredientsCount: number;
   time: number;
   title: string;
-};
+} & YStackProps;
 
 export const RecipeCard = ({
   description,
@@ -19,6 +23,7 @@ export const RecipeCard = ({
   ingredientsCount,
   time,
   title,
+  ...rest
 }: RecipeCardProps) => (
   <YStack
     width={280}
@@ -27,7 +32,7 @@ export const RecipeCard = ({
     rounded={16}
     borderWidth={1}
     borderColor="$border"
-    mr="$4"
+    {...rest}
   >
     <Image
       source={{ uri: imageUrl }}

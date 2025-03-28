@@ -3,8 +3,8 @@ import { createTokens } from 'tamagui';
 
 export const tokens = createTokens({
   color: {
-    lightText: '#ffffff',
-    darkText: '#1f2937',
+    lightText: 'hsla(0, 0%, 100%, 1)',
+    darkText: 'hsla(222, 47%, 17%, 1)',
     primary: 'hsla(81, 70%, 40%, 1)',
     primaryOpacity: 'hsla(81, 70%, 40%, 0.1)',
     primaryDark: 'hsla(81, 70%, 30%, 1)',
@@ -12,6 +12,16 @@ export const tokens = createTokens({
     secundary: 'hsla(240, 33%, 40%, 1)',
     secundaryDark: 'hsla(240, 33%, 30%, 1)',
     secundaryLight: 'hsla(240, 33%, 60%, 1)',
+    red: 'hsla(0, 84%, 60%, 1)',
+    redOpacity: 'hsla(0, 84%, 60%, 0.1)',
+    yellow: 'hsla(48, 96%, 47%, 1)',
+    yellowOpacity: 'hsla(48, 96%, 47%, 0.1)',
+    green: 'hsla(142, 71%, 45%, 1)',
+    greenOpacity: 'hsla(142, 71%, 45%, 0.1)',
+    blue: 'hsla(217, 91%, 60%, 1)',
+    blueOpacity: 'hsla(217, 91%, 60%, 0.1)',
+    purple: 'hsla(270, 91%, 65%, 1)',
+    purpleOpacity: 'hsla(270, 91%, 65%, 0.1)',
   },
   radius: {
     1: 4,
