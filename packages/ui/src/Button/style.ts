@@ -26,9 +26,9 @@ export const ButtonFrame = styled(XStack, {
   context: ButtonContext,
   items: 'center',
   justify: 'center',
-  rounded: '$max',
-  px: 12,
-  gap: 8,
+  rounded: '$3',
+  px: '$4',
+  gap: '$2',
   variants: {
     roundedStyle: {
       true: (_, { props }) => {

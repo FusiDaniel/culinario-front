@@ -25,7 +25,7 @@ You are a **senior front-end developer**.
 3. **Styles**: Use **"tamagui"** for styling.
 4. **All text should be only black or white**.
 5. Theme colors "neutralBase", "neutralMid" and "neutralOposite" must be used when the neutral colored element changes color between dark and light mode.
-6. For text use SizableText or H[n], using only the following sizes: h1, h2, body1, body2, body3 defined in the tamagui config.
+6. For text use SizableText or H[n], using only the following sizes: h1, h2, body1, body2 defined in the tamagui config.
 7. Uses these shorthand to style the tamagui components:
     // text
         text: 'textAlign',

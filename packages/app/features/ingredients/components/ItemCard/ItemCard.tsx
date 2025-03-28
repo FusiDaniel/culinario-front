@@ -19,7 +19,7 @@ export const ItemCard = ({ description, icon: Icon, iconBg, iconColor = '$primar
       </View>
       <YStack>
         <SizableText size="$body1" color="$text1">{title}</SizableText>
-        <SizableText size="$body3" color="$text2">{description}</SizableText>
+        <SizableText size="$body2" color="$text2">{description}</SizableText>
       </YStack>
     </XStack>
   </XStack>

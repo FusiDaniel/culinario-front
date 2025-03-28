@@ -5,16 +5,14 @@ export const size = {
   h1: 20,
   h2: 16,
   body1: 14,
-  body2: 14,
-  body3: 12,
+  body2: 12,
 };
 
 export const weight = {
   h1: '700',
   h2: '700',
   body1: '400',
-  body2: '400',
-  body3: '300',
+  body2: '300',
 };
 
 export const lineHeight = {
@@ -22,7 +20,6 @@ export const lineHeight = {
   h2: 1.4,
   body1: 1.4,
   body2: 1.4,
-  body3: 1.4,
 };
 
 export const font = createFont({

@@ -100,7 +100,6 @@ This document outlines the coding standards and best practices for the Culinario
   - `size="$h2"` - Secondary headings
   - `size="$body1"` - Primary body text
   - `size="$body2"` - Secondary body text
-  - `size="$body3"` - Small text, captions
 - Use appropriate text colors:
   - `color="$text1"` - Primary text (dark in light mode, light in dark mode)
   - `color="$text2"` - Secondary text (muted)

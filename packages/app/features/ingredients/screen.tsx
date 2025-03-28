@@ -34,8 +34,71 @@ type SectionData = {
   title: string;
 };
 
-const sections: Record<string, SectionData> = {
-  foodPreferences: {
+const sections: SectionData[] = [
+  {
+    actionText: 'View All',
+    items: [
+      {
+        description: '500g • Expires in 3 days',
+        icon: Package,
+        iconBg: '$primaryOpacity',
+        title: 'Chicken Breast',
+      },
+      {
+        description: '1kg • Expires in 30 days',
+        icon: Package,
+        iconBg: '$primaryOpacity',
+        title: 'Brown Rice',
+      },
+      {
+        description: '2kg • Expires in 7 days',
+        icon: Package,
+        iconBg: '$primaryOpacity',
+        title: 'Potatoes',
+      },
+      {
+        description: '300g • Expires in 5 days',
+        icon: Package,
+        iconBg: '$primaryOpacity',
+        title: 'Cheese',
+      },
+      {
+        description: '6 units • Expires in 10 days',
+        icon: Package,
+        iconBg: '$primaryOpacity',
+        title: 'Eggs',
+      },
+    ],
+    title: 'Home Ingredients',
+  },
+  {
+    actionText: 'Edit',
+    items: [
+      {
+        description: 'Peanuts, Shellfish',
+        icon: X,
+        iconBg: '$redOpacity',
+        iconColor: '$red',
+        title: 'Allergies',
+      },
+      {
+        description: 'Vegetarian',
+        icon: AlertTriangle,
+        iconBg: '$yellowOpacity',
+        iconColor: '$yellow',
+        title: 'Dietary Restrictions',
+      },
+      {
+        description: 'Lactose Intolerance',
+        icon: X,
+        iconBg: '$redOpacity',
+        iconColor: '$red',
+        title: 'Intolerances',
+      },
+    ],
+    title: 'Food Restrictions',
+  },
+  {
     actionText: 'Edit',
     items: [
       {
@@ -69,34 +132,7 @@ const sections: Record<string, SectionData> = {
     ],
     title: 'Food Preferences',
   },
-  foodRestrictions: {
-    actionText: 'Edit',
-    items: [
-      {
-        description: 'Peanuts, Shellfish',
-        icon: X,
-        iconBg: '$redOpacity',
-        iconColor: '$red',
-        title: 'Allergies',
-      },
-      {
-        description: 'Vegetarian',
-        icon: AlertTriangle,
-        iconBg: '$yellowOpacity',
-        iconColor: '$yellow',
-        title: 'Dietary Restrictions',
-      },
-      {
-        description: 'Lactose Intolerance',
-        icon: X,
-        iconBg: '$redOpacity',
-        iconColor: '$red',
-        title: 'Intolerances',
-      },
-    ],
-    title: 'Food Restrictions',
-  },
-  groceryList: {
+  {
     actionText: 'Add Item',
     items: [
       {
@@ -144,43 +180,8 @@ const sections: Record<string, SectionData> = {
     ],
     title: 'Grocery List',
   },
-  homeIngredients: {
-    actionText: 'View All',
-    items: [
-      {
-        description: '500g • Expires in 3 days',
-        icon: Package,
-        iconBg: '$primaryOpacity',
-        title: 'Chicken Breast',
-      },
-      {
-        description: '1kg • Expires in 30 days',
-        icon: Package,
-        iconBg: '$primaryOpacity',
-        title: 'Brown Rice',
-      },
-      {
-        description: '2kg • Expires in 7 days',
-        icon: Package,
-        iconBg: '$primaryOpacity',
-        title: 'Potatoes',
-      },
-      {
-        description: '300g • Expires in 5 days',
-        icon: Package,
-        iconBg: '$primaryOpacity',
-        title: 'Cheese',
-      },
-      {
-        description: '6 units • Expires in 10 days',
-        icon: Package,
-        iconBg: '$primaryOpacity',
-        title: 'Eggs',
-      },
-    ],
-    title: 'Home Ingredients',
-  },
-};
+
+];
 
 export const IngredientsScreen = () => (
   <NativeScrollView>
@@ -193,7 +194,7 @@ export const IngredientsScreen = () => (
         </XStack>
       </XStack>
 
-      {Object.values(sections).map(section => (
+      {sections.map(section => (
         <Section
           key={section.title}
           title={section.title}
