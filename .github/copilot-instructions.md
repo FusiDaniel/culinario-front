@@ -106,6 +106,7 @@ This document outlines the coding standards and best practices for the Culinario
   - `color="$text2"` - Secondary text (muted)
   - `color="$lightText"` - Light text (for dark backgrounds)
 - All text should be only black or white, adapting to the theme
+- Dont't set custom fontWeight
 
 ## Icons & Images
 

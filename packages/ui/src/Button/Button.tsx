@@ -21,7 +21,7 @@ export type ButtonProps = Omit<TButtonProps, 'rounded' | 'size' | 'variant'> & {
   rounded?: boolean;
   scroll?: boolean;
   size?: SizeTokens;
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'unstyled';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'text';
 };
 
 const Btn = withStaticProperties(ButtonFrame, {
@@ -40,6 +40,7 @@ export const Button = ({
   rounded = false,
   scroll,
   size = 'MD',
+  unstyled,
   variant = 'primary',
   ...rest
 }: ButtonProps) => {
@@ -50,7 +51,7 @@ export const Button = ({
     'tag': 'a',
   };
 
-  if (variant === 'unstyled') {
+  if (unstyled) {
     return (
       <View {...href && linkProps} {...rest}>
         {children}
