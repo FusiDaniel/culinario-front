@@ -26,7 +26,7 @@ const TabLayout = () => {
       tabBarLabel: ({ children, focused }) => (
         <SizableText
           color={focused ? '$primary' : '$text2'}
-          size="$body3"
+          size="$body2"
         >
           {children}
         </SizableText>

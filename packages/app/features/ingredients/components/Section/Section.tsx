@@ -51,7 +51,7 @@ export const Section = ({ actionText, items, onAction, title }: SectionProps) =>
           ))}
           {remainingCount > 0 && (
             <XStack items="center" gap="$2" pt="$2" borderTopWidth={1} borderColor="$border">
-              <SizableText size="$body3" color="$text2">
+              <SizableText size="$body2" color="$text2">
                 {`+ ${remainingCount} more items`}
               </SizableText>
               <ChevronRight size={16} color="$text2" />

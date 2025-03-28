@@ -35,7 +35,7 @@ const NavItem = ({ href, icon: Icon, isActive, label }: NavItemProps) => {
         color={isActive ? '$primary' : '$text2'}
       />
       <SizableText
-        size="$body3"
+        size="$body2"
         color={isActive ? '$primary' : '$text2'}
       >
         {label}

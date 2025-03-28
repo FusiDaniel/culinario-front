@@ -6,7 +6,7 @@ const HEIGHT = 50;
 export const SearchBar = () => {
   const aaa = 123;
   return (
-    <XStack gap={4}>
+    <XStack gap="$1">
       <XStack
         flex={1}
         bg="$bg2"
