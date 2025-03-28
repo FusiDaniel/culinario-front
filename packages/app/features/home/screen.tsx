@@ -13,20 +13,24 @@ import { Shortcuts } from './components/Shortcuts';
 
 export const HomeScreen = () => (
   <NativeScrollView>
-    <YStack flex={1} px={24} py={32} bg="$bg1" gap="$6">
-      <XStack justify="space-between" items="center">
-        <SizableText size="$h1">Início</SizableText>
-        <XStack gap="$4" items="center">
-          <SwitchThemeButton />
-          <Menu />
+    <YStack flex={1} py={32} bg="$bg1" gap="$6">
+      <YStack flex={1} px={24} gap="$6">
+        <XStack justify="space-between" items="center">
+          <SizableText size="$h1">Início</SizableText>
+          <XStack gap="$4" items="center">
+            <SwitchThemeButton />
+            <Menu />
+          </XStack>
         </XStack>
-      </XStack>
-      <SearchBar />
-      <DontKnowWhatToCook />
-      <Shortcuts />
-      <Carousel title="Comidas Rápidas" />
-      <Carousel title="Opções Saudáveis" />
-      <Carousel title="Popular" />
+        <SearchBar />
+        <DontKnowWhatToCook />
+        <Shortcuts />
+      </YStack>
+      <YStack flex={1} gap="$6">
+        <Carousel title="Comidas Rápidas" />
+        <Carousel title="Opções Saudáveis" />
+        <Carousel title="Popular" />
+      </YStack>
     </YStack>
   </NativeScrollView>
 );

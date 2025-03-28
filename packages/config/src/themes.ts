@@ -31,24 +31,22 @@ const lightPalette = [
 ];
 
 const lightShadows = {
-  shadow1: 'rgba(0,0,0,0.04)',
-  shadow2: 'rgba(0,0,0,0.08)',
-  shadow3: 'rgba(0,0,0,0.16)',
-  shadow4: 'rgba(0,0,0,0.24)',
-  shadow5: 'rgba(0,0,0,0.32)',
-  shadow6: 'rgba(0,0,0,0.4)',
+  shadow1: 'hsla(0, 0%, 0%, 0.04)',
+  shadow2: 'hsla(0, 0%, 0%, 0.08)',
+  shadow3: 'hsla(0, 0%, 0%, 0.16)',
+  shadow4: 'hsla(0, 0%, 0%, 0.24)',
+  shadow5: 'hsla(0, 0%, 0%, 0.32)',
+  shadow6: 'hsla(0, 0%, 0%, 0.4)',
 };
 
 const darkShadows = {
-  shadow1: 'rgba(0,0,0,0.2)',
-  shadow2: 'rgba(0,0,0,0.3)',
-  shadow3: 'rgba(0,0,0,0.4)',
-  shadow4: 'rgba(0,0,0,0.5)',
-  shadow5: 'rgba(0,0,0,0.6)',
-  shadow6: 'rgba(0,0,0,0.7)',
+  shadow1: 'hsla(0, 0%, 0%, 0.2)',
+  shadow2: 'hsla(0, 0%, 0%, 0.3)',
+  shadow3: 'hsla(0, 0%, 0%, 0.4)',
+  shadow4: 'hsla(0, 0%, 0%, 0.5)',
+  shadow5: 'hsla(0, 0%, 0%, 0.6)',
+  shadow6: 'hsla(0, 0%, 0%, 0.7)',
 };
-
-// we're adding some example sub-themes for you to show how they are done, "success" "warning", "error":
 
 const builtThemes = createThemes({
   accent: {
@@ -87,26 +85,26 @@ const builtThemes = createThemes({
   base: {
     extra: {
       dark: {
-        background: '#2d2d2d',
-        bg1: '#2d2d2d',
-        bg2: '#3d3d3d',
-        border: '#4d4d4d',
-        focusOutline: 'rgba(123, 173, 31, 0.3)',
-        text1: '#e5e7eb',
-        text2: '#9ca3af',
-        text3: '#e5e7eb',
+        background: 'hsla(0, 0%, 18%, 1)',
+        bg1: 'hsla(0, 0%, 18%, 1)',
+        bg2: 'hsla(0, 0%, 24%, 1)',
+        border: 'hsla(0, 0%, 30%, 1)',
+        focusOutline: 'hsla(81, 70%, 40%, 0.3)',
+        text1: 'hsla(220, 13%, 91%, 1)',
+        text2: 'hsla(215, 16%, 65%, 1)',
+        text3: 'hsla(220, 13%, 91%, 1)',
         ...darkShadows,
         shadowColor: darkShadows.shadow1,
       },
       light: {
-        background: 'hsl(48, 50%, 95%)',
-        bg1: 'hsl(48, 50%, 95%)',
-        bg2: '#ffffff',
-        border: '#f3f4f6',
+        background: 'hsla(48, 50%, 95%, 1)',
+        bg1: 'hsla(48, 50%, 95%, 1)',
+        bg2: 'hsla(0, 0%, 100%, 1)',
+        border: 'hsla(210, 20%, 96%, 1)',
         focusOutline: 'hsla(81, 70%, 40%, 0.3)',
-        text1: '#1f2937',
-        text2: '#6b7280',
-        text3: '#9ca3af',
+        text1: 'hsla(222, 47%, 17%, 1)',
+        text2: 'hsla(220, 9%, 46%, 1)',
+        text3: 'hsla(215, 16%, 65%, 1)',
         ...lightShadows,
         shadowColor: lightShadows.shadow1,
       },
@@ -142,26 +140,6 @@ const builtThemes = createThemes({
   },
 
   componentThemes: defaultComponentThemes,
-
-  // optionally add more, can pass palette or template
-
-  // grandChildrenThemes: {
-  //   alt1: {
-  //     template: 'alt1',
-  //   },
-  //   alt2: {
-  //     template: 'alt2',
-  //   },
-  //   surface1: {
-  //     template: 'surface1',
-  //   },
-  //   surface2: {
-  //     template: 'surface2',
-  //   },
-  //   surface3: {
-  //     template: 'surface3',
-  //   },
-  // },
 });
 
 export type Themes = typeof builtThemes;
