@@ -50,7 +50,7 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="ingredients/index"
+        name="ingredients"
         options={{
           tabBarIcon: ({ color }) => <ListChecks width={24} height={24} size={24} color={color as ThemeTokens} />,
           title: 'Ingredients',
@@ -64,7 +64,7 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="profile/index"
+        name="profile"
         options={{
           tabBarIcon: ({ color }) => <User width={24} height={24} size={24} color={color as ThemeTokens} />,
           title: 'Profile',
