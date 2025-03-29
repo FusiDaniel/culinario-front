@@ -4,6 +4,7 @@ import type {
 import type { IconProps } from '@tamagui/helpers-icon';
 import type { NamedExoticComponent } from 'react';
 import {
+  Button,
   NativeScrollView,
   SizableText,
   SwitchThemeButton,
@@ -194,6 +195,7 @@ export const IngredientsScreen = () => (
         </XStack>
       </XStack>
 
+      <Button href="/ingredients/home">ingredientes home</Button>
       {sections.map(section => (
         <Section
           key={section.title}
