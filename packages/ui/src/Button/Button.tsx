@@ -53,7 +53,11 @@ export const Button = ({
 
   if (unstyled) {
     return (
-      <View {...href && linkProps} {...rest}>
+      <View
+        cursor='pointer'
+        {...href && linkProps}
+        {...rest}
+      >
         {children}
       </View>
     );

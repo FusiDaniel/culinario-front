@@ -6408,6 +6408,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dom-speech-recognition@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "@types/dom-speech-recognition@npm:0.0.5"
+  checksum: 10/4ef7bfb11330c2fd09baca392f5aad396eb227dfffd397333c2240c50e1c0a8a0b4b8f8331b19d7c0ca8849eef46cb4195fa152ad824571e3d796b86e2b51409
+  languageName: node
+  linkType: hard
+
 "@types/eslint@npm:^9.6.1":
   version: 9.6.1
   resolution: "@types/eslint@npm:9.6.1"
@@ -7776,6 +7783,7 @@ __metadata:
     "@tamagui/shorthands": "npm:^1.125.26"
     "@tamagui/themes": "npm:^1.125.26"
     "@tanstack/react-query": "npm:^5.71.1"
+    "@types/dom-speech-recognition": "npm:^0.0.5"
     "@types/react": "npm:^18.3.3"
     "@types/react-native": "npm:^0.73.0"
     axios: "npm:^1.8.4"
@@ -7783,6 +7791,7 @@ __metadata:
     expo-constants: "npm:~16.0.2"
     expo-linking: "npm:~6.3.1"
     react-native-safe-area-context: "npm:5.2.0"
+    react-speech-recognition: "npm:^4.0.0"
     solito: "npm:^4.2.2"
   languageName: unknown
   linkType: soft
@@ -18159,6 +18168,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10/d4dfd38e4381fa6059c8b810568b2d3a31fe21168bb3e2f57d1b1885ee08736fbd5a3fd83936faef0d17031c9c4175a1af83885bfc6c4280611f025447b19a4c
+  languageName: node
+  linkType: hard
+
+"react-speech-recognition@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "react-speech-recognition@npm:4.0.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10/cc401d3218f8777a996a6f6a41dccd805212440751be9ef9df4776bfa10f6a3ff55e0c541e8422242b6bf32dc73bcc4d0153359b9c6f2df583f3da31d371b195
   languageName: node
   linkType: hard
 

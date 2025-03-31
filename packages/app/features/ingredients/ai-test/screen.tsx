@@ -1,10 +1,11 @@
 import {
   Button,
   NativeScrollView,
-  SizableText, SwitchThemeButton,
+  SizableText,
+  SwitchThemeButton,
   View,
   XStack,
-  YStack
+  YStack,
 } from '@repo/ui';
 import {
   Menu,
@@ -31,23 +32,23 @@ export const IngredientsAiTestScreen = () => {
         </View>
 
         <YStack gap="$2">
-          <SizableText size="$h1">Found Ingredients:</SizableText>
+          <SizableText size="$h1">Ingredientes listados no DB do backend:</SizableText>
           {foundIngredients.map(ingredient => (
             <SizableText key={ingredient} size="$body1" ml="$2">
               {`•  ${ingredient}`}
             </SizableText>
           ))}
-          {foundIngredients.length === 0 && <SizableText size="$body1" ml="$2">Sem ingredientes encontrados</SizableText>}
+          {foundIngredients.length === 0 && <SizableText size="$body1" ml="$2">Sem ingredientes adicionados</SizableText>}
         </YStack>
 
         <YStack gap="$2">
-          <SizableText size="$h1">Not Found Ingredients:</SizableText>
+          <SizableText size="$h1">Ingredientes não listados no DB do backend:</SizableText>
           {notFoundIngredients.map(ingredient => (
             <SizableText key={ingredient} size="$body1" ml="$2">
               {`•  ${ingredient}`}
             </SizableText>
           ))}
-          {notFoundIngredients.length === 0 && <SizableText size="$body1" ml="$2">Sem ingredientes não encontrados</SizableText>}
+          {notFoundIngredients.length === 0 && <SizableText size="$body1" ml="$2">Sem ingredientes não adicionados</SizableText>}
         </YStack>
       </YStack>
     </NativeScrollView>

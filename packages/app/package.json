@@ -22,9 +22,11 @@
     "expo-constants": "~16.0.2",
     "expo-linking": "~6.3.1",
     "react-native-safe-area-context": "5.2.0",
+    "react-speech-recognition": "^4.0.0",
     "solito": "^4.2.2"
   },
   "devDependencies": {
+    "@types/dom-speech-recognition": "^0.0.5",
     "@types/react": "^18.3.3",
     "@types/react-native": "^0.73.0"
   }
