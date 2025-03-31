@@ -195,7 +195,7 @@ export const IngredientsScreen = () => (
         </XStack>
       </XStack>
 
-      <Button href="/ingredients/home">ingredientes home</Button>
+      <Button href="/ingredients/ai-test" self='flex-start'>/ingredients/ai-test</Button>
       {sections.map(section => (
         <Section
           key={section.title}

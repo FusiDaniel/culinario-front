@@ -16,6 +16,8 @@
     "@tamagui/lucide-icons": "^1.125.32",
     "@tamagui/shorthands": "^1.125.32",
     "@tamagui/themes": "^1.125.32",
+    "@tanstack/react-query": "^5.71.1",
+    "axios": "^1.8.4",
     "burnt": "^0.12.2",
     "expo-constants": "~16.0.2",
     "expo-linking": "~6.3.1",
