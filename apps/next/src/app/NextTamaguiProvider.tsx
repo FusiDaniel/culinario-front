@@ -1,23 +1,24 @@
-'use client'
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
+'use client';
 
-import '@tamagui/core/reset.css'
-import '@tamagui/font-inter/css/400.css'
-import '@tamagui/font-inter/css/700.css'
-import '@tamagui/polyfill-dev'
+import type { ReactNode } from 'react';
+import { config } from '@repo/ui';
+import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme';
+import { Provider } from 'app/provider';
 
-import type { ReactNode } from 'react'
-import { StyleSheet } from 'react-native'
-import { useServerInsertedHTML } from 'next/navigation'
-import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme'
-import { config } from '@repo/ui'
-import { Provider } from 'app/provider'
+import { useServerInsertedHTML } from 'next/navigation';
+import { StyleSheet } from 'react-native';
+import '@tamagui/core/reset.css';
+import '@tamagui/font-inter/css/400.css';
+import '@tamagui/font-inter/css/700.css';
+import '@tamagui/polyfill-dev';
 
 export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useRootTheme()
+  const [theme, setTheme] = useRootTheme();
 
   useServerInsertedHTML(() => {
-    // @ts-ignore
-    const rnwStyle = StyleSheet.getSheet()
+    // @ts-expect-error - the way the default tamagui repo do
+    const rnwStyle = StyleSheet.getSheet();
     return (
       <>
         <style
@@ -53,14 +54,16 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
         <style
           jsx
           global
-        >{`
+        >
+          {`
           html {
             font-family: 'Inter';
           }
-        `}</style>
+        `}
+        </style>
       </>
-    )
-  })
+    );
+  });
 
   return (
     <NextThemeProvider
@@ -68,7 +71,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
       // change default theme (system) here:
       // defaultTheme="dark"
       onChangeTheme={(next) => {
-        setTheme(next as any)
+        setTheme(next as any);
       }}
     >
       <Provider
@@ -78,5 +81,5 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
         {children}
       </Provider>
     </NextThemeProvider>
-  )
-}
+  );
+};
