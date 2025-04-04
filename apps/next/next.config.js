@@ -1,43 +1,39 @@
-const { join } = require('node:path');
 /** @type {import('next').NextConfig} */
-const { withTamagui } = require('@tamagui/next-plugin');
+const { withTamagui } = require('@tamagui/next-plugin')
+const { join } = require('node:path')
 
 const boolVals = {
-  false: false,
   true: true,
-};
+  false: false,
+}
 
-const disableExtraction
-  = boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development';
+const disableExtraction =
+  boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development'
 
 const plugins = [
   withTamagui({
-    appDir: true,
-    components: ['tamagui', '@repo/ui'],
     config: '../../packages/config/src/tamagui.config.ts',
-    disableExtraction,
-    excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
+    components: ['tamagui', '@repo/ui'],
+    appDir: true,
     importsWhitelist: ['constants.js', 'colors.js'],
-    logTimings: true,
     outputCSS: process.env.NODE_ENV === 'production' ? './public/tamagui.css' : null,
-    shouldExtract: (path) => {
-      if (path.includes(join('packages', 'app'))) {
-        return true;
-      }
-    },
+    logTimings: true,
+    reactStrictMode: true,
+    disableExtraction: process.env.NODE_ENV === 'development', // Prevents extraction issues
+    excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
   }),
-];
+]
 
 module.exports = () => {
   /** @type {import('next').NextConfig} */
   let config = {
-    experimental: {
-      scrollRestoration: true,
+    typescript: {
+      ignoreBuildErrors: true,
     },
     modularizeImports: {
       '@tamagui/lucide-icons': {
-        skipDefaultConversion: true,
         transform: `@tamagui/lucide-icons/dist/esm/icons/{{kebabCase member}}`,
+        skipDefaultConversion: true,
       },
     },
     transpilePackages: [
@@ -47,17 +43,17 @@ module.exports = () => {
       'expo-constants',
       'expo-modules-core',
     ],
-    typescript: {
-      ignoreBuildErrors: true,
+    experimental: {
+      scrollRestoration: true,
     },
-  };
+  }
 
   for (const plugin of plugins) {
     config = {
       ...config,
       ...plugin(config),
-    };
+    }
   }
 
-  return config;
-};
+  return config
+}

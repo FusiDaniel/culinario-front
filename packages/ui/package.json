@@ -1,16 +1,16 @@
 {
   "name": "@repo/ui",
   "version": "0.0.1",
-  "private": true,
   "sideEffects": [
     "*.css"
   ],
-  "main": "src/index.tsx",
+  "private": true,
   "types": "./src",
+  "main": "src/index.tsx",
   "module:jsx": "src",
   "files": [
-    "dist",
-    "types"
+    "types",
+    "dist"
   ],
   "scripts": {
     "build": "tamagui-build --skip-types",
@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@repo/config": "0.0.1",
-    "@tamagui/toast": "^1.125.26",
-    "tamagui": "^1.125.26"
+    "@tamagui/toast": "^1.125.32",
+    "tamagui": "^1.125.32"
   },
   "devDependencies": {
-    "@tamagui/build": "^1.125.26"
+    "@tamagui/build": "^1.125.32"
   }
 }

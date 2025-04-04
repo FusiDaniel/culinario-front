@@ -1,8 +1,8 @@
-import { styled, YStack } from 'tamagui';
+import { YStack, styled } from 'tamagui'
 
 export const MyComponent = styled(YStack, {
-  bg: 'red',
   name: 'MyComponent',
+  bg: 'red',
 
   variants: {
     blue: {
@@ -11,4 +11,4 @@ export const MyComponent = styled(YStack, {
       },
     },
   } as const,
-});
+})

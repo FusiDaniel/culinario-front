@@ -1,14 +1,13 @@
-import { defaultConfig } from '@tamagui/config/v4';
-import { createTamagui } from 'tamagui';
-import { animations } from './animations';
-import { font } from './fonts';
+import { defaultConfig } from '@tamagui/config/v4'
+import { createTamagui } from 'tamagui'
+import { bodyFont, headingFont } from './fonts'
+import { animations } from './animations'
 
 export const config = createTamagui({
   ...defaultConfig,
   animations,
-  defaultFont: 'body',
   fonts: {
-    body: font,
-    heading: font,
+    body: bodyFont,
+    heading: headingFont,
   },
-});
+})
