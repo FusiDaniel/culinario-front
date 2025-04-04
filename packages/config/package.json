@@ -1,15 +1,15 @@
 {
   "name": "@repo/config",
   "version": "0.0.1",
+  "private": true,
   "sideEffects": [
     "*.css"
   ],
-  "private": true,
-  "types": "./src",
   "main": "src/index.ts",
+  "types": "./src",
   "files": [
-    "types",
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "build": "tamagui-build --skip-types",
