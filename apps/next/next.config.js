@@ -1,39 +1,30 @@
 /** @type {import('next').NextConfig} */
-const { withTamagui } = require('@tamagui/next-plugin')
-const { join } = require('node:path')
-
-const boolVals = {
-  true: true,
-  false: false,
-}
-
-const disableExtraction =
-  boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development'
+const { withTamagui } = require('@tamagui/next-plugin');
 
 const plugins = [
   withTamagui({
-    config: '../../packages/config/src/tamagui.config.ts',
-    components: ['tamagui', '@repo/ui'],
     appDir: true,
-    importsWhitelist: ['constants.js', 'colors.js'],
-    outputCSS: process.env.NODE_ENV === 'production' ? './public/tamagui.css' : null,
-    logTimings: true,
-    reactStrictMode: true,
+    components: ['tamagui', '@repo/ui'],
+    config: '../../packages/config/src/tamagui.config.ts',
     disableExtraction: process.env.NODE_ENV === 'development', // Prevents extraction issues
     excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
+    importsWhitelist: ['constants.js', 'colors.js'],
+    logTimings: true,
+    outputCSS: process.env.NODE_ENV === 'production' ? './public/tamagui.css' : null,
+    reactStrictMode: true,
   }),
-]
+];
 
 module.exports = () => {
   /** @type {import('next').NextConfig} */
   let config = {
-    typescript: {
-      ignoreBuildErrors: true,
+    experimental: {
+      scrollRestoration: true,
     },
     modularizeImports: {
       '@tamagui/lucide-icons': {
-        transform: `@tamagui/lucide-icons/dist/esm/icons/{{kebabCase member}}`,
         skipDefaultConversion: true,
+        transform: `@tamagui/lucide-icons/dist/esm/icons/{{kebabCase member}}`,
       },
     },
     transpilePackages: [
@@ -43,17 +34,17 @@ module.exports = () => {
       'expo-constants',
       'expo-modules-core',
     ],
-    experimental: {
-      scrollRestoration: true,
+    typescript: {
+      ignoreBuildErrors: true,
     },
-  }
+  };
 
   for (const plugin of plugins) {
     config = {
       ...config,
       ...plugin(config),
-    }
+    };
   }
 
-  return config
-}
+  return config;
+};

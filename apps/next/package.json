@@ -12,6 +12,7 @@
     "postinstall": "tamagui generate"
   },
   "dependencies": {
+    "@tamagui/cli": "^1.125.32",
     "@tamagui/config": "^1.125.32",
     "@tamagui/next-theme": "^1.125.32",
     "app": "0.0.0",
@@ -27,7 +28,6 @@
     "vercel": "latest"
   },
   "devDependencies": {
-    "@tamagui/cli": "^1.125.32",
     "@tamagui/next-plugin": "^1.125.32",
     "@types/node": "^20.14.1",
     "eslint-config-next": "^14.2.3",
