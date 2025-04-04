@@ -26,7 +26,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Fresh and nutritious salad with a variety of colorful vegetables and a light vinaigrette',
     id: '1',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c',
+    image: 'https://picsum.photos/128/128?random=1',
     ingredientsCount: 8,
     time: 30,
     title: 'Healthy Salad',
@@ -34,7 +34,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Authentic Italian pasta with homemade tomato sauce and fresh basil',
     id: '2',
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591',
+    image: 'https://picsum.photos/128/128?random=2',
     ingredientsCount: 6,
     time: 45,
     title: 'Pasta Dish',
@@ -42,7 +42,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Tender grilled chicken with herbs and spices served with roasted vegetables',
     id: '3',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
+    image: 'https://picsum.photos/128/128?random=3',
     ingredientsCount: 7,
     time: 40,
     title: 'Grilled Chicken',
@@ -50,7 +50,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Hearty vegetable soup with seasonal ingredients and aromatic herbs',
     id: '4',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd',
+    image: 'https://picsum.photos/128/128?random=4',
     ingredientsCount: 10,
     time: 60,
     title: 'Vegetable Soup',
@@ -58,7 +58,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Classic Neapolitan pizza with tomato sauce, fresh mozzarella, and basil leaves',
     id: '5',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38',
+    image: 'https://picsum.photos/128/128?random=5',
     ingredientsCount: 5,
     time: 50,
     title: 'Margherita Pizza',
@@ -66,7 +66,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Rich and moist chocolate cake with a silky ganache frosting',
     id: '6',
-    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b',
+    image: 'https://picsum.photos/128/128?random=6',
     ingredientsCount: 9,
     time: 90,
     title: 'Chocolate Cake',
@@ -74,7 +74,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Creamy avocado spread on whole grain toast topped with microgreens and seeds',
     id: '7',
-    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445',
+    image: 'https://picsum.photos/128/128?random=7',
     ingredientsCount: 4,
     time: 15,
     title: 'Avocado Toast',
@@ -82,7 +82,7 @@ const savedRecipes: Recipe[] = [
   {
     description: 'Nourishing bowl with grains, vegetables, proteins and a tasty dressing',
     id: '8',
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe',
+    image: 'https://picsum.photos/128/128?random=8',
     ingredientsCount: 12,
     time: 35,
     title: 'Buddha Bowl',

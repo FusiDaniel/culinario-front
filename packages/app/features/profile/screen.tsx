@@ -127,7 +127,7 @@ export const ProfileScreen = () => (
         <XStack gap="$4" items="center">
           <View position="relative">
             <Image
-              source={{ uri: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e' }}
+              source={{ uri: 'https://picsum.photos/96/96?random=1' }}
               width={96}
               height={96}
               borderRadius={48}

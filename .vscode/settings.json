@@ -16,5 +16,12 @@
     { "rule": "*quotes", "severity": "off" },
     { "rule": "*semi", "severity": "off" }
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#20451c",
+    "titleBar.border": "#20451c",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#41613e",
+    "titleBar.inactiveForeground": "#ffffff"
+  }
 }
