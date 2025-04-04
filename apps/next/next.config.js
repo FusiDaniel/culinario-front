@@ -1,30 +1,17 @@
-const { join } = require('node:path');
 /** @type {import('next').NextConfig} */
 const { withTamagui } = require('@tamagui/next-plugin');
-
-const boolVals = {
-  false: false,
-  true: true,
-};
-
-const disableExtraction
-  = boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development';
 
 const plugins = [
   withTamagui({
     appDir: true,
     components: ['tamagui', '@repo/ui'],
     config: '../../packages/config/src/tamagui.config.ts',
-    disableExtraction,
+    disableExtraction: process.env.NODE_ENV === 'development', // Prevents extraction issues
     excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
     importsWhitelist: ['constants.js', 'colors.js'],
     logTimings: true,
     outputCSS: process.env.NODE_ENV === 'production' ? './public/tamagui.css' : null,
-    shouldExtract: (path) => {
-      if (path.includes(join('packages', 'app'))) {
-        return true;
-      }
-    },
+    reactStrictMode: true,
   }),
 ];
 
