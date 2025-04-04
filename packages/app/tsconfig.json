@@ -1,13 +1,20 @@
 {
   "extends": "../../tsconfig.base",
-  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
     "paths": {
-      "app/*": ["./packages/app/*"],
-      "@repo/ui/*": ["./packages/ui/*"]
+      "app/*": [
+        "./packages/app/*"
+      ],
+      "@repo/ui/*": [
+        "./packages/ui/*"
+      ]
     }
   },
-  "references": []
+  "references": [],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

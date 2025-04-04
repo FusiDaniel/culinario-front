@@ -1,16 +1,17 @@
-import { useColorScheme } from 'react-native'
+import type { TamaguiProviderProps } from '@repo/ui';
 import {
-  CustomToast,
-  TamaguiProvider,
-  type TamaguiProviderProps,
-  ToastProvider,
   config,
+  CustomToast,
   isWeb,
-} from '@repo/ui'
-import { ToastViewport } from './ToastViewport'
+  TamaguiProvider,
 
-export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) {
-  const colorScheme = useColorScheme()
+  ToastProvider,
+} from '@repo/ui';
+import { useColorScheme } from 'react-native';
+import { ToastViewport } from './ToastViewport';
+
+export const Provider = ({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) => {
+  const colorScheme = useColorScheme();
 
   return (
     <TamaguiProvider
@@ -24,5 +25,5 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
         <ToastViewport />
       </ToastProvider>
     </TamaguiProvider>
-  )
-}
+  );
+};
