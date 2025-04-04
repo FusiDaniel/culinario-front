@@ -15,12 +15,13 @@ type ItemCardProps = {
 
 type SectionProps = {
   actionText: string;
+  href?: string;
   items: ItemCardProps[];
   onAction?: () => void;
   title: string;
 };
 
-export const Section = ({ actionText, items, onAction, title }: SectionProps) => {
+export const Section = ({ actionText, href, items, onAction, title }: SectionProps) => {
   const visibleItems = items.slice(0, 2);
   const remainingCount = items.length - 2;
 
@@ -32,6 +33,7 @@ export const Section = ({ actionText, items, onAction, title }: SectionProps) =>
           variant="text"
           color="$primary"
           px={0}
+          href={href}
           onPress={onAction}
         >
           {actionText}

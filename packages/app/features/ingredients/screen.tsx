@@ -4,7 +4,6 @@ import type {
 import type { IconProps } from '@tamagui/helpers-icon';
 import type { NamedExoticComponent } from 'react';
 import {
-  Button,
   NativeScrollView,
   SizableText,
   SwitchThemeButton,
@@ -24,6 +23,7 @@ import { Section } from './components';
 
 type SectionData = {
   actionText: string;
+  href?: string;
   items: {
     description: string;
     icon: NamedExoticComponent<IconProps>;
@@ -38,6 +38,7 @@ type SectionData = {
 const sections: SectionData[] = [
   {
     actionText: 'View All',
+    href: '/ingredients/home',
     items: [
       {
         description: '500g • Expires in 3 days',
@@ -194,8 +195,6 @@ export const IngredientsScreen = () => (
           <Menu size={24} color="$text1" />
         </XStack>
       </XStack>
-
-      <Button href="/ingredients/ai-test" self='flex-start'>/ingredients/ai-test</Button>
       {sections.map(section => (
         <Section
           key={section.title}
@@ -203,6 +202,7 @@ export const IngredientsScreen = () => (
           actionText={section.actionText}
           items={section.items}
           onAction={section.onAction}
+          href={section.href}
         />
       ))}
     </YStack>

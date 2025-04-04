@@ -118,11 +118,6 @@ export const ProfileScreen = () => (
           <Menu size={20} color="$text1" />
         </XStack>
       </XStack>
-
-      <Button href='/profile/test'>
-        profile test
-      </Button>
-
       <YStack bg="$bg2" p="$4" rounded={16}>
         <XStack gap="$4" items="center">
           <View position="relative">
