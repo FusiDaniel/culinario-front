@@ -1,16 +1,16 @@
 {
   "name": "@repo/ui",
   "version": "0.0.1",
+  "private": true,
   "sideEffects": [
     "*.css"
   ],
-  "private": true,
-  "types": "./src",
   "main": "src/index.tsx",
+  "types": "./src",
   "module:jsx": "src",
   "files": [
-    "types",
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "build": "tamagui-build --skip-types",
