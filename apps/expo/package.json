@@ -17,6 +17,7 @@
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@repo/ui": "0.0.1",
+    "@repo/utils": "0.0.1",
     "app": "0.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "burnt": "^0.12.2",

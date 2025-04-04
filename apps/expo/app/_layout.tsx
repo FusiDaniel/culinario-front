@@ -21,7 +21,9 @@ const RootLayoutNav = () => {
   return (
     <Provider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack />
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
         <NativeToast />
       </ThemeProvider>
     </Provider>
@@ -30,11 +32,11 @@ const RootLayoutNav = () => {
 
 const App = () => {
   const [fontsLoaded, fontsError] = useFonts({
-    BlinkerBold: require('../assets/fonts/Blinker-Bold.ttf'),
-    BlinkerExtrabold: require('../assets/fonts/Blinker-ExtraBold.ttf'),
-    BlinkerLight: require('../assets/fonts/Blinker-Light.ttf'),
-    BlinkerRegular: require('../assets/fonts/Blinker-Regular.ttf'),
-    BlinkerSemibold: require('../assets/fonts/Blinker-SemiBold.ttf'),
+    DMSansBold: require('../assets/fonts/DMSans-Bold.ttf'),
+    DMSansExtrabold: require('../assets/fonts/DMSans-ExtraBold.ttf'),
+    DMSansLight: require('../assets/fonts/DMSans-Light.ttf'),
+    DMSansRegular: require('../assets/fonts/DMSans-Regular.ttf'),
+    DMSansSemibold: require('../assets/fonts/DMSans-SemiBold.ttf'),
   });
 
   useEffect(() => {

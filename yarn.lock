@@ -2093,6 +2093,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/config-array@npm:^0.20.0":
+  version: 0.20.0
+  resolution: "@eslint/config-array@npm:0.20.0"
+  dependencies:
+    "@eslint/object-schema": "npm:^2.1.6"
+    debug: "npm:^4.3.1"
+    minimatch: "npm:^3.1.2"
+  checksum: 10/9db7f6cbb5363f2f98ee4805ce09d1a95c4349e86f3f456f2c23a0849b7a6aa8d2be4c25e376ee182af062762e15a101844881c89b566eea0856c481ffcb2090
+  languageName: node
+  linkType: hard
+
 "@eslint/config-helpers@npm:^0.1.0":
   version: 0.1.0
   resolution: "@eslint/config-helpers@npm:0.1.0"
@@ -2158,10 +2169,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.23.0":
-  version: 9.23.0
-  resolution: "@eslint/js@npm:9.23.0"
-  checksum: 10/d1d38fa2c4234f6ebed8e202530c9dccf565c47283f4e3c53955a47fed2bf8c59988f535672a32b53c14fed72e456c1c5cb050cd98a45474086b9693cbfa97d6
+"@eslint/js@npm:9.24.0":
+  version: 9.24.0
+  resolution: "@eslint/js@npm:9.24.0"
+  checksum: 10/d210114c147a1c1ebfaed5f32734e7c1f8ef551a5ea48ea67f9469668aa4079565ccd038412437bca87515d51dc9e8b8c788473dcf3d08e35dfb27e92cb3ce1b
   languageName: node
   linkType: hard
 
@@ -4176,6 +4187,7 @@ __metadata:
     "@eslint-react/eslint-plugin": "npm:1.37.0"
     "@eslint/js": "npm:9.22.0"
     "@next/eslint-plugin-next": "npm:15.2.3"
+    "@tanstack/eslint-plugin-query": "npm:^5.68.0"
     "@typescript-eslint/utils": "npm:^8.24.0"
     eslint: "npm:9.22.0"
     eslint-config-prettier: "npm:10.1.1"
@@ -4196,8 +4208,21 @@ __metadata:
   resolution: "@repo/ui@workspace:packages/ui"
   dependencies:
     "@repo/config": "npm:0.0.1"
+    "@repo/utils": "npm:0.0.1"
     "@tamagui/build": "npm:^1.125.32"
     "@tamagui/toast": "npm:^1.125.32"
+    tamagui: "npm:^1.125.32"
+  languageName: unknown
+  linkType: soft
+
+"@repo/utils@npm:0.0.1, @repo/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@repo/utils@workspace:packages/utils"
+  dependencies:
+    "@repo/config": "npm:0.0.1"
+    "@tamagui/build": "npm:^1.125.32"
+    expo-router: "npm:4.0.17"
+    next: "npm:14.2.14"
     tamagui: "npm:^1.125.32"
   languageName: unknown
   linkType: soft
@@ -6232,6 +6257,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/eslint-plugin-query@npm:^5.68.0":
+  version: 5.71.5
+  resolution: "@tanstack/eslint-plugin-query@npm:5.71.5"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.18.1"
+  peerDependencies:
+    eslint: ^8.57.0 || ^9.0.0
+  checksum: 10/843266c95369a1c91231abe5ee8ed69d53a4615f6fec20214822f5ed05becbf5215e0122bd120503d583b80b09886dd57823fc079df05b17c771da62f523eec0
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.71.10":
+  version: 5.71.10
+  resolution: "@tanstack/query-core@npm:5.71.10"
+  checksum: 10/f432fed7454f6a27daa8ea01393b68b3b4365cf8c75eb52b6e92ed6dfb00ebedd85310c2a4c953d68ec1130c490762529da48ca877a256ff74ebea003524da51
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.71.1":
+  version: 5.71.10
+  resolution: "@tanstack/react-query@npm:5.71.10"
+  dependencies:
+    "@tanstack/query-core": "npm:5.71.10"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10/0a72510880b94087659ef7cda51737f2173d1d8c163e377784d0c05c09cec2f073ee84a5738e199f80eff7cdaf654b2fe0fa39e442d08c680feb697860444b6d
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2.0.0":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -6354,6 +6408,13 @@ __metadata:
   version: 0.0.9
   resolution: "@types/doctrine@npm:0.0.9"
   checksum: 10/64ef06e6eea2f4f9684d259fedbcb8bf21c954630b96ea2e04875ca42763552b0ba3b01b3dd27ec0f9ea6f8b3b0dba4965d31d5a925cd4c6225fd13a93ae9354
+  languageName: node
+  linkType: hard
+
+"@types/dom-speech-recognition@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "@types/dom-speech-recognition@npm:0.0.5"
+  checksum: 10/4ef7bfb11330c2fd09baca392f5aad396eb227dfffd397333c2240c50e1c0a8a0b4b8f8331b19d7c0ca8849eef46cb4195fa152ad824571e3d796b86e2b51409
   languageName: node
   linkType: hard
 
@@ -6763,7 +6824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.29.0, @typescript-eslint/utils@npm:^8.23.0, @typescript-eslint/utils@npm:^8.24.0, @typescript-eslint/utils@npm:^8.27.0, @typescript-eslint/utils@npm:^8.28.0, @typescript-eslint/utils@npm:^8.29.0":
+"@typescript-eslint/utils@npm:8.29.0, @typescript-eslint/utils@npm:^8.18.1, @typescript-eslint/utils@npm:^8.23.0, @typescript-eslint/utils@npm:^8.24.0, @typescript-eslint/utils@npm:^8.27.0, @typescript-eslint/utils@npm:^8.28.0, @typescript-eslint/utils@npm:^8.29.0":
   version: 8.29.0
   resolution: "@typescript-eslint/utils@npm:8.29.0"
   dependencies:
@@ -7616,18 +7677,23 @@ __metadata:
   dependencies:
     "@react-navigation/native": "npm:^6.1.17"
     "@repo/ui": "npm:0.0.1"
+    "@repo/utils": "npm:0.0.1"
     "@tamagui/animations-react-native": "npm:^1.125.32"
     "@tamagui/colors": "npm:^1.125.32"
     "@tamagui/font-inter": "npm:^1.125.32"
     "@tamagui/lucide-icons": "npm:^1.125.32"
     "@tamagui/shorthands": "npm:^1.125.32"
     "@tamagui/themes": "npm:^1.125.32"
+    "@tanstack/react-query": "npm:^5.71.1"
+    "@types/dom-speech-recognition": "npm:^0.0.5"
     "@types/react": "npm:^18.3.3"
     "@types/react-native": "npm:^0.73.0"
+    axios: "npm:^1.8.4"
     burnt: "npm:^0.12.2"
     expo-constants: "npm:~16.0.2"
     expo-linking: "npm:~6.3.1"
     react-native-safe-area-context: "npm:5.2.0"
+    react-speech-recognition: "npm:^4.0.0"
     solito: "npm:^4.2.2"
   languageName: unknown
   linkType: soft
@@ -7933,6 +7999,17 @@ __metadata:
   version: 4.10.3
   resolution: "axe-core@npm:4.10.3"
   checksum: 10/9ff51ad0fd0fdec5c0247ea74e8ace5990b54c7f01f8fa3e5cd8ba98b0db24d8ebd7bab4a9bd4d75c28c4edcd1eac455b44c8c6c258c6a98f3d2f88bc60af4cc
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.8.4":
+  version: 1.8.4
+  resolution: "axios@npm:1.8.4"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/a10f0dd836613924e48cf03dc2eff3fd21b14f764807aedaee4880a70c0f142aaebdb21da7ce27104d4c16ca00d0e452a20a20851f60e385a8d5bad1ae909d46
   languageName: node
   linkType: hard
 
@@ -11489,16 +11566,16 @@ __metadata:
   linkType: hard
 
 "eslint@npm:^9.3.0":
-  version: 9.23.0
-  resolution: "eslint@npm:9.23.0"
+  version: 9.24.0
+  resolution: "eslint@npm:9.24.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.12.1"
-    "@eslint/config-array": "npm:^0.19.2"
+    "@eslint/config-array": "npm:^0.20.0"
     "@eslint/config-helpers": "npm:^0.2.0"
     "@eslint/core": "npm:^0.12.0"
     "@eslint/eslintrc": "npm:^3.3.1"
-    "@eslint/js": "npm:9.23.0"
+    "@eslint/js": "npm:9.24.0"
     "@eslint/plugin-kit": "npm:^0.2.7"
     "@humanfs/node": "npm:^0.16.6"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
@@ -11534,7 +11611,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10/fed63151adea5e4c732bc945dd8d30e6b670d0191b8aa4baff13a0826e29153499f7a59cb88a5a634f31d61c2bea2339ca4b9ff5976e9a61b2222abfb7431e4d
+  checksum: 10/05810e135c1f429be451a4be92283c0be204010bb0ea71edfeae1d25ff917cbc5a229144ee55853a085088c7e4092e59a28c0dae87a865ef9600ad4438861d4a
   languageName: node
   linkType: hard
 
@@ -11717,6 +11794,7 @@ __metadata:
     "@react-navigation/bottom-tabs": "npm:^7.2.0"
     "@react-navigation/native": "npm:^7.0.14"
     "@repo/ui": "npm:0.0.1"
+    "@repo/utils": "npm:0.0.1"
     "@tamagui/babel-plugin": "npm:^1.125.32"
     app: "npm:0.0.0"
     babel-plugin-module-resolver: "npm:^5.0.2"
@@ -12522,7 +12600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.6":
   version: 1.15.9
   resolution: "follow-redirects@npm:1.15.9"
   peerDependenciesMeta:
@@ -12567,6 +12645,18 @@ __metadata:
     es-set-tostringtag: "npm:^2.1.0"
     mime-types: "npm:^2.1.35"
   checksum: 10/6dbef55ddbeefc3c9ec2dac3683f0b4ca22352addc2b22a002650c90a0049b694f004c42d54971b0faf3dd7060818456e0053003a959c95ad6769905d582062f
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "form-data@npm:4.0.2"
+  dependencies:
+    asynckit: "npm:^0.4.0"
+    combined-stream: "npm:^1.0.8"
+    es-set-tostringtag: "npm:^2.1.0"
+    mime-types: "npm:^2.1.12"
+  checksum: 10/82c65b426af4a40090e517a1bc9057f76970b4c6043e37aa49859c447d88553e77d4cc5626395079a53d2b0889ba5f2a49f3900db3ad3f3f1bf76613532572fb
   languageName: node
   linkType: hard
 
@@ -15744,7 +15834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.1.27, mime-types@npm:^2.1.35, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
+"mime-types@npm:^2.1.12, mime-types@npm:^2.1.27, mime-types@npm:^2.1.35, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
   version: 2.1.35
   resolution: "mime-types@npm:2.1.35"
   dependencies:
@@ -17479,6 +17569,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: 10/f0bb4a87cfd18f77bc2fba23ae49c3b378fb35143af16cc478171c623eebe181678f09439707ad80081d340d1593cd54a33a0113f3ccb3f4bc9451488780ee23
+  languageName: node
+  linkType: hard
+
 "ps-list@npm:^7.2.0":
   version: 7.2.0
   resolution: "ps-list@npm:7.2.0"
@@ -17956,6 +18053,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10/d4dfd38e4381fa6059c8b810568b2d3a31fe21168bb3e2f57d1b1885ee08736fbd5a3fd83936faef0d17031c9c4175a1af83885bfc6c4280611f025447b19a4c
+  languageName: node
+  linkType: hard
+
+"react-speech-recognition@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "react-speech-recognition@npm:4.0.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10/cc401d3218f8777a996a6f6a41dccd805212440751be9ef9df4776bfa10f6a3ff55e0c541e8422242b6bf32dc73bcc4d0153359b9c6f2df583f3da31d371b195
   languageName: node
   linkType: hard
 

@@ -57,7 +57,7 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
         >
           {`
           html {
-            font-family: 'Inter';
+            font-family: 'DM Sans';
           }
         `}
         </style>

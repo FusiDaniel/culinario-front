@@ -5,5 +5,23 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off" },
+    { "rule": "*-indent", "severity": "off" },
+    { "rule": "*-spacing", "severity": "off" },
+    { "rule": "*-spaces", "severity": "off" },
+    { "rule": "*-order", "severity": "off" },
+    { "rule": "*-dangle", "severity": "off" },
+    { "rule": "*-newline", "severity": "off" },
+    { "rule": "*quotes", "severity": "off" },
+    { "rule": "*semi", "severity": "off" }
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#20451c",
+    "titleBar.border": "#20451c",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#41613e",
+    "titleBar.inactiveForeground": "#ffffff"
+  }
 }
