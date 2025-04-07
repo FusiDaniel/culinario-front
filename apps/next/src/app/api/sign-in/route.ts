@@ -1,104 +1,119 @@
-import axios from 'axios';
+import type { AxiosResponse } from 'axios';
+import { tryCatch } from '@repo/utils/src/tryCatch';
+import axios, { isAxiosError } from 'axios';
 
-// Erros que podem ocorrer 
-// res.status(400).json({ text: 'Invalid credentials' });
-// res.status(500).json({ text: 'Internal Server Error' });
-// res.status(405).json({ text: 'Method Not Allowed' }); ????
-// Se redirecionar para login tbm é provavelmente um 400 'Invalid credentials'
+type GetAccessTokenResponse = {
+  access_token: string;
+  expires_in: number;
+  refresh_token: string;
+  token_type: string;
+};
 
-// Primeiro: 302 e mandar para /                (certo)
-//           302 e mandar para /login?error     (invalid credentials)
-//           500                                (internal server error)
+const INVALID_CREDENTIALS = 'Invalid credentials';
 
-// Segundo:  302 e mandar para /urlConfigurada  (certo)
-//           302 e mandar para /login           (invalid credentials)
-//           500                                (internal server error)
+const host = 'http://localhost:8080';
+const clientId = 'culinario';
+const client_secret = 'culinario123';
+const redirectURI = 'https://oidcdebugger.com/debug';
+const loginEndpoint = `${host}/login`;
+const oAuthAutorizeEndpoint = `${host}/oauth2/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectURI}`;
+const oAuthTokenEnpoint = `http://localhost:8080/oauth2/token`;
 
-// Terceiro: 201                                (certo)
-//           400 invalid_grant                  (invalid credentials)
-//           500                                (internal server error)
-
+const axiosClient = axios.create({
+  maxRedirects: 0,
+  validateStatus: status => status >= 200 && status < 400,
+  withCredentials: true,
+});
 
 export const POST = async (request: Request) => {
-  const axiosClient = axios.create({
-    maxRedirects: 0,
-    validateStatus: status => status >= 200 && status < 400,
-    withCredentials: true,
-  });
-
-  const host = 'http://localhost:8080';
   const { password, username } = await request.json();
-  const clientId = 'culinario';
-  const client_secret = 'culinario123';
-  const redirectURI = 'https://oidcdebugger.com/debug';
-  const loginEndpoint = `${host}/login`;
-  const oAuthAutorizeEndpoint = `${host}/oauth2/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectURI}`;
-  const oAuthTokenEnpoint = `http://localhost:8080/oauth2/token`;
 
-  let JSESSIONID = '';
-  let code = '';
-  let data: Record<string, number | string> = {};
-
+  // Get JSESSIONID
   const formData = new FormData();
   formData.append('username', username);
   formData.append('password', password);
 
-  try {
-    const formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
+  const getJSessionId = axiosClient.post(loginEndpoint, formData, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 
-    const fetchResponse = await axiosClient.post(loginEndpoint, formData, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+  const selectJSessionId = (response: AxiosResponse) => {
+    if (`${response.headers.location}`.split('?')[1] === 'error')
+      throw new Error(INVALID_CREDENTIALS);
+    return response.headers['set-cookie']?.[0].split(';')[0].split('=')[1];
+  };
+
+  const { data: jSessionId, error: jSessionIdError } = await tryCatch(getJSessionId, selectJSessionId);
+
+  if (jSessionIdError) {
+    const error = isAxiosError(jSessionIdError) ? jSessionIdError.response?.data : jSessionIdError.message;
+    const status = isAxiosError(jSessionIdError) ? jSessionIdError.response?.status : 400;
+    return new Response(
+      JSON.stringify({ error }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        status,
       },
-    });
-    JSESSIONID = `${fetchResponse.headers['set-cookie']?.[0].split(';')[0].split('=')[1]}`;
-  }
-  catch (error) {
-    if (axios.isAxiosError(error)) {
-    //   console.error(error);
-      console.error('Erro etapa 1');
-    }
+    );
   }
 
-  try {
-    const fetchResponse = await axiosClient(oAuthAutorizeEndpoint, {
-      headers: { Cookie: `JSESSIONID=${JSESSIONID}` },
-      method: 'GET',
-    });
-    const responseLocationURL = fetchResponse.headers.location;
+  // Get code
+  const getCode = axiosClient.get(oAuthAutorizeEndpoint, { headers: { Cookie: `JSESSIONID=${jSessionId}` } });
+
+  const selectCode = (response: AxiosResponse) => {
+    const responseLocationURL = `${response.headers.location}`;
     const index = responseLocationURL.indexOf('code=');
-    const codeFromResponse = responseLocationURL.substring(index + 5);
-    code = codeFromResponse;
-  }
-  catch (error) {
-    if (axios.isAxiosError(error)) {
-    //   console.error(error);
-      console.error('Erro etapa 2');
-    }
+    if (index === -1)
+      throw new Error(INVALID_CREDENTIALS);
+    return responseLocationURL.substring(index + 5);
+  };
+
+  const { data: code, error: codeError } = await tryCatch(getCode, selectCode);
+
+  if (codeError) {
+    const error = isAxiosError(codeError) ? codeError.response?.data : codeError.message;
+    const status = isAxiosError(codeError) ? codeError.response?.status : 400;
+    return new Response(
+      JSON.stringify({ error }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        status,
+      },
+    );
   }
 
-  const oAuthRequestBody = new URLSearchParams();
-  oAuthRequestBody.append('grant_type', 'authorization_code');
-  oAuthRequestBody.append('code', code);
-  oAuthRequestBody.append('redirect_uri', redirectURI);
+  // Get access token
+  const getAccessTokenRequestBody = new URLSearchParams();
+  getAccessTokenRequestBody.append('grant_type', 'authorization_code');
+  getAccessTokenRequestBody.append('code', code);
+  getAccessTokenRequestBody.append('redirect_uri', redirectURI);
 
-  try {
-    const fetchResponse = await axiosClient.post(oAuthTokenEnpoint, oAuthRequestBody, {
+  const getAccessToken = axiosClient.post<GetAccessTokenResponse>(
+    oAuthTokenEnpoint,
+    getAccessTokenRequestBody,
+    {
       headers: {
         'Authorization': `Basic ${Buffer.from(`${clientId}:${client_secret}`).toString('base64')}`,
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': `JSESSIONID=${JSESSIONID}`,
+        'Cookie': `JSESSIONID=${jSessionId}`,
       },
-    });
-    data = fetchResponse.data;
-  }
-  catch (error) {
-    if (axios.isAxiosError(error)) {
-    //   console.error(error);
-      console.error('Erro etapa 3');
-    }
+    },
+  );
+
+  const selectAccessToken = (response: AxiosResponse<GetAccessTokenResponse>) => response.data;
+
+  const { data, error: accessTokenError } = await tryCatch(getAccessToken, selectAccessToken);
+
+  if (accessTokenError) {
+    const error = isAxiosError(accessTokenError)
+      ? (accessTokenError.response?.data.error === 'invalid_grant' ? INVALID_CREDENTIALS : accessTokenError.response?.data.error)
+      : accessTokenError.message;
+    const status = isAxiosError(accessTokenError) ? accessTokenError.response?.status : 500;
+    return new Response(
+      JSON.stringify({ error }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        status,
+      },
+    );
   }
 
   return new Response(JSON.stringify(data), {

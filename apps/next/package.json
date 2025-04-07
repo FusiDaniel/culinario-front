@@ -12,12 +12,12 @@
     "postinstall": "tamagui generate"
   },
   "dependencies": {
+    "@repo/utils": "0.0.1",
     "@tamagui/cli": "^1.125.32",
     "@tamagui/config": "^1.125.32",
     "@tamagui/next-theme": "^1.125.32",
     "app": "0.0.0",
     "axios": "^1.8.4",
-    "cookie": "^1.0.2",
     "mini-css-extract-plugin": "^2.9.1",
     "next": "14.2.14",
     "raf": "^3.4.1",
@@ -27,12 +27,10 @@
     "react-native-web": "0.19.12",
     "react-native-web-lite": "^1.112.4",
     "tamagui": "^1.125.32",
-    "vercel": "latest",
-    "xior": "^0.7.7"
+    "vercel": "latest"
   },
   "devDependencies": {
     "@tamagui/next-plugin": "^1.125.32",
-    "@types/cookie": "^1.0.2",
     "@types/node": "^20.14.1",
     "eslint-config-next": "^14.2.3",
     "next-compose-plugins": "^2.2.1",

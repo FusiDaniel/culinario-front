@@ -9096,13 +9096,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "cookie@npm:1.0.2"
-  checksum: 10/f5817cdc84d8977761b12549eba29435e675e65c7fef172bc31737788cd8adc83796bf8abe6d950554e7987325ad2d9ac2971c5bd8ff0c4f81c145f82e4ab1be
-  languageName: node
-  linkType: hard
-
 "core-js-compat@npm:^3.40.0":
   version: 3.41.0
   resolution: "core-js-compat@npm:3.41.0"
@@ -16221,6 +16214,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-app@workspace:apps/next"
   dependencies:
+    "@repo/utils": "npm:0.0.1"
     "@tamagui/cli": "npm:^1.125.32"
     "@tamagui/config": "npm:^1.125.32"
     "@tamagui/next-plugin": "npm:^1.125.32"
@@ -16228,7 +16222,6 @@ __metadata:
     "@types/node": "npm:^20.14.1"
     app: "npm:0.0.0"
     axios: "npm:^1.8.4"
-    cookie: "npm:^1.0.2"
     eslint-config-next: "npm:^14.2.3"
     mini-css-extract-plugin: "npm:^2.9.1"
     next: "npm:14.2.14"
@@ -16244,7 +16237,6 @@ __metadata:
     tree-kill: "npm:^1.2.2"
     vercel: "npm:latest"
     vitest: "npm:^2.1.1"
-    xior: "npm:^0.7.7"
   languageName: unknown
   linkType: soft
 
@@ -20001,6 +19993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "tiny-lru@npm:^11.2.11":
   version: 11.2.11
   resolution: "tiny-lru@npm:11.2.11"
@@ -20009,6 +20002,8 @@ __metadata:
   linkType: hard
 
 >>>>>>> 86d95d7 (feat: working getting token)
+=======
+>>>>>>> a29b8b4 (feat: refactor and error handeling)
 "tinybench@npm:^2.9.0":
   version: 2.9.0
   resolution: "tinybench@npm:2.9.0"
@@ -21522,15 +21517,6 @@ __metadata:
   dependencies:
     os-paths: "npm:^4.0.1"
   checksum: 10/30a9cdae2e664598d1c1e0af849fb35c09db26b10337b7cfcc765435766e1ac82076db6b1120fea9b7ddb52c3d5f49ee76282560f4137d5fca1f5022129a3420
-  languageName: node
-  linkType: hard
-
-"xior@npm:^0.7.7":
-  version: 0.7.7
-  resolution: "xior@npm:0.7.7"
-  dependencies:
-    tiny-lru: "npm:^11.2.11"
-  checksum: 10/d92d657af1a79d957671ffcb1b9605e983ecb969fbc2085c0d043b238345c3028324a88751e9b0156bcca32e1642ecabdd359488de307d2b1da57d831c44df3f
   languageName: node
   linkType: hard
 
