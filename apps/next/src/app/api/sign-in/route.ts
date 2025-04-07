@@ -1,6 +1,7 @@
 import type { AxiosResponse } from 'axios';
 import { tryCatch } from '@repo/utils/src/tryCatch';
 import axios, { isAxiosError } from 'axios';
+import { serialize } from 'cookie';
 
 type GetAccessTokenResponse = {
   access_token: string;
@@ -116,8 +117,16 @@ export const POST = async (request: Request) => {
     );
   }
 
-  return new Response(JSON.stringify(data), {
-    headers: { 'Content-Type': 'application/json' },
-    status: 201,
+  return new Response(undefined, {
+    headers: {
+      'Set-Cookie': serialize('session', data.access_token, {
+        httpOnly: true,
+        maxAge: data.expires_in,
+        path: '/',
+        sameSite: true,
+        secure: process.env.NODE_ENV !== 'development',
+      }),
+    },
+    status: 204,
   });
 };
