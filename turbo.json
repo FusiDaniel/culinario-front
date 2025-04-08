@@ -3,7 +3,15 @@
   "globalEnv": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
   "pipeline": {
     "build": {
-      "env": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM", "API_GATEWAY_URL"],
+      "env": [
+        "DISABLE_EXTRACTION",
+        "NODE_ENV",
+        "EAS_BUILD_PLATFORM",
+        "API_GATEWAY_URL",
+        "CLIENT_ID",
+        "CLIENT_SECRET",
+        "REDIRECT_URI"
+      ],
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "build/**", "node_modules/.cache/metro/**"]
     },

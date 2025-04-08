@@ -9,7 +9,7 @@ const allowedHeadersList = ['location'];
 const proxyRequest = async (request: NextRequest, method: string) => {
   const { data: body, error: bodyError } = await tryCatch(request.json());
   const params = request.nextUrl.searchParams;
-  const url = `${process.env.API_GATEWAY_URL}${request.nextUrl.pathname.slice(13)}`;
+  const url = `${process.env.API_GATEWAY_URL}/${request.nextUrl.pathname.slice(13)}`;
   const sessionCookie = request.cookies.get('session')?.value;
   const xForwardedFor = request.headers.get('x-forwarded-for');
   const xRealIp = request.headers.get('x-real-ip');

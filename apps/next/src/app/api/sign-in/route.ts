@@ -13,13 +13,13 @@ type GetAccessTokenResponse = {
 
 const INVALID_CREDENTIALS = 'Invalid credentials';
 
-const host = 'http://localhost:8080';
-const clientId = 'culinario';
-const client_secret = 'culinario123';
-const redirectURI = 'https://oidcdebugger.com/debug';
-const loginEndpoint = `${host}/login`;
-const oAuthAutorizeEndpoint = `${host}/oauth2/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectURI}`;
-const oAuthTokenEnpoint = `http://localhost:8080/oauth2/token`;
+const host = process.env.API_GATEWAY_URL;
+const clientId = process.env.CLIENT_ID;
+const client_secret = process.env.CLIENT_SECRET;
+const redirectURI = process.env.REDIRECT_URI || '';
+const jSessionIdEndpoint = `${host}/login`;
+const codeEndpoint = `${host}/oauth2/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectURI}`;
+const accessTokenEnpoint = `${host}/oauth2/token`;
 
 const axiosClient = axios.create({
   maxRedirects: 0,
@@ -35,7 +35,7 @@ export const POST = async (request: NextRequest) => {
   formData.append('username', username);
   formData.append('password', password);
 
-  const getJSessionId = axiosClient.post(loginEndpoint, formData, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+  const getJSessionId = axiosClient.post(jSessionIdEndpoint, formData, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 
   const selectJSessionId = (response: AxiosResponse) => {
     if (`${response.headers.location}`.split('?')[1] === 'error')
@@ -58,7 +58,7 @@ export const POST = async (request: NextRequest) => {
   }
 
   // Get code
-  const getCode = axiosClient.get(oAuthAutorizeEndpoint, { headers: { Cookie: `JSESSIONID=${jSessionId}` } });
+  const getCode = axiosClient.get(codeEndpoint, { headers: { Cookie: `JSESSIONID=${jSessionId}` } });
 
   const selectCode = (response: AxiosResponse) => {
     const responseLocationURL = `${response.headers.location}`;
@@ -89,7 +89,7 @@ export const POST = async (request: NextRequest) => {
   getAccessTokenRequestBody.append('redirect_uri', redirectURI);
 
   const getAccessToken = axiosClient.post<GetAccessTokenResponse>(
-    oAuthTokenEnpoint,
+    accessTokenEnpoint,
     getAccessTokenRequestBody,
     {
       headers: {
