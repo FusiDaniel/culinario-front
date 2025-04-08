@@ -1,6 +1,8 @@
+import { USERS_ME_QUERY_KEY } from '@repo/services';
 import { Button, Input, YStack } from '@repo/ui';
+import { api } from '@repo/utils';
 import { useForm } from '@tanstack/react-form';
-import axios from 'axios';
+import { useQueryClient } from '@tanstack/react-query';
 
 type SignInFormValues = {
   email: string;
@@ -8,16 +10,26 @@ type SignInFormValues = {
 };
 
 export const SignInForm = () => {
+  const queryClient = useQueryClient();
   const form = useForm({
     defaultValues: {
       email: '',
       password: '',
     } as SignInFormValues,
     onSubmit: async ({ value }) => {
-      const response = await axios.post('/api/sign-in', {
-        password: value.password,
-        username: value.email,
-      });
+      const response = await api.post(
+        '/sign-in',
+        {
+          password: value.password,
+          username: value.email,
+        },
+        {
+          provider: 'next',
+        },
+      );
+      if (response.status === 204) {
+        queryClient.invalidateQueries({ queryKey: USERS_ME_QUERY_KEY });
+      }
     },
   });
 

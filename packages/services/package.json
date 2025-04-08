@@ -1,5 +1,5 @@
 {
-  "name": "@repo/utils",
+  "name": "@repo/services",
   "version": "0.0.1",
   "private": true,
   "sideEffects": [
@@ -17,12 +17,9 @@
     "watch": "tamagui-build --skip-types --watch"
   },
   "dependencies": {
-    "@repo/config": "0.0.1",
-    "app": "0.0.0",
-    "expo-router": "~4.0.20",
-    "expo-secure-store": "~14.0.1",
-    "next": "14.2.14",
-    "tamagui": "^1.125.32"
+    "@repo/utils": "0.0.1",
+    "@tanstack/react-query": "^5.71.1",
+    "axios": "^1.8.4"
   },
   "devDependencies": {
     "@tamagui/build": "^1.125.32"

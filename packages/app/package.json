@@ -8,6 +8,7 @@
   "main": "index.ts",
   "dependencies": {
     "@react-navigation/native": "^6.1.17",
+    "@repo/services": "0.0.1",
     "@repo/ui": "0.0.1",
     "@repo/utils": "0.0.1",
     "@tamagui/animations-react-native": "^1.125.32",

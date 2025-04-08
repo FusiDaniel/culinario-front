@@ -1,9 +1,9 @@
-// import { queryClient } from 'providers';
+import { queryClient } from 'app/provider';
 import axios from 'axios';
 import { env } from '../enviroments';
 
-export const signOut = () =>
-  axios.post(`${env.APP_GATEWAY_PROVIDER_URL}/api/gateway/sign-out`).then(response =>
-    // queryClient.clear();
-    response,
-  );
+export const signOut = async (callbackUrl: string = '/') => {
+  await axios.post(`${env.APP_GATEWAY_PROVIDER_URL}/api/sign-out`);
+  queryClient.clear();
+  window.location.href = callbackUrl;
+};
