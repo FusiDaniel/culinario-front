@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios';
+import type { NextRequest } from 'next/server';
 import { tryCatch } from '@repo/utils/src/tryCatch';
 import axios, { isAxiosError } from 'axios';
 import { serialize } from 'cookie';
@@ -26,7 +27,7 @@ const axiosClient = axios.create({
   withCredentials: true,
 });
 
-export const POST = async (request: Request) => {
+export const POST = async (request: NextRequest) => {
   const { password, username } = await request.json();
 
   // Get JSESSIONID
