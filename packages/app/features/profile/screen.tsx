@@ -23,6 +23,7 @@ import {
 } from '@tamagui/lucide-icons';
 import { Fragment } from 'react';
 import { ProfileItem, ProfileSection, SelectItem } from './components';
+import { SignInForm } from './components/SignInForm';
 
 type MockSelectProps = { value: string };
 
@@ -148,6 +149,7 @@ export const ProfileScreen = () => (
           </YStack>
         </XStack>
       </YStack>
+      <SignInForm />
 
       {sections.map(section => (
         <ProfileSection key={`section-${section.title}`} title={section.title}>
