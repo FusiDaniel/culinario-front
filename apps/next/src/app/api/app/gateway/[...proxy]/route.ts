@@ -1,4 +1,5 @@
 import type { NextRequest } from 'next/server';
+import https from 'node:https';
 import { tryCatch } from '@repo/utils/src/tryCatch';
 import axios, { isAxiosError } from 'axios';
 import { serialize } from 'cookie';
@@ -9,21 +10,20 @@ const allowedHeadersList = ['location'];
 const proxyRequest = async (request: NextRequest, method: string) => {
   const { data: body, error: bodyError } = await tryCatch(request.json());
   const params = request.nextUrl.searchParams;
-  const url = `${process.env.API_GATEWAY_URL}/${request.nextUrl.pathname.slice(13)}`;
-  const sessionCookie = request.cookies.get('session')?.value;
+  const url = `${process.env.API_GATEWAY_URL}/${request.nextUrl.pathname.slice(17)}`;
   const xForwardedFor = request.headers.get('x-forwarded-for');
   const xRealIp = request.headers.get('x-real-ip');
-
-  console.log(url)
-  console.log(`Bearer ${sessionCookie}`)
 
   const { data: axiosResponse, error } = await tryCatch(
     axios({
       data: bodyError ? undefined : body,
       headers: {
-        'Authorization': sessionCookie ? `Bearer ${sessionCookie}` : undefined,
+        'Authorization': request.headers.get('authorization'),
         'x-client-real-ip': xForwardedFor ?? xRealIp,
       },
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false,
+      }),
       maxRedirects: 0,
       method,
       params,

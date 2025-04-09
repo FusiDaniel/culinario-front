@@ -1,15 +1,10 @@
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import { env } from '../enviroments';
 import { applyInterceptors } from './interceptors';
+import { baseURL } from './providers';
 
 type ApiRequestConfig = AxiosRequestConfig & {
   provider?: 'gateway' | 'next';
-};
-
-const baseURL = {
-  gateway: `${env.APP_GATEWAY_PROVIDER_URL}/api/gateway/`,
-  next: `${env.APP_GATEWAY_PROVIDER_URL}/api/`,
 };
 
 const DEFAULT_TIMEOUT = 10000;
@@ -35,12 +30,11 @@ export const api = (() => {
         method: 'delete',
         url,
       }),
-    get: <RequestReturnType>(url: string, config?: ApiRequestConfig) =>
-      request<RequestReturnType>({
-        ...config,
-        method: 'get',
-        url,
-      }).then(response => response.data),
+    get: <RequestReturnType>(url: string, config?: ApiRequestConfig) => request<RequestReturnType>({
+      ...config,
+      method: 'get',
+      url,
+    }).then(response => response.data),
     patch: <RequestReturnType>(url: string, data: unknown = null, config?: ApiRequestConfig) =>
       request<RequestReturnType>({
         ...config,
