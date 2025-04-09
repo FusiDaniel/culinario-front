@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@repo/config": "0.0.1",
-    "expo-router": "4.0.17",
+    "expo-router": "~4.0.20",
     "next": "14.2.14",
     "tamagui": "^1.125.32"
   },

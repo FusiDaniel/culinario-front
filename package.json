@@ -44,7 +44,7 @@
   "resolutions": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-native-svg": "15.11.2",
+    "react-native-svg": "15.8.0",
     "react-native-web": "~0.19.12",
     "react-refresh": "^0.14.0"
   }
