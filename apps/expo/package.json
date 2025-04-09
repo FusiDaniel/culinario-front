@@ -48,12 +48,12 @@
     "metro-minify-terser": "^0.81.0",
     "typescript": "^5.7.3"
   },
-  "overrides": {
-    "metro": "0.81.0",
-    "metro-resolver": "0.81.0"
-  },
-  "resolutions": {
-    "metro": "0.81.0",
-    "metro-resolver": "0.81.0"
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "listUnknownPackages": false
+      }
+    }
   }
+
 }

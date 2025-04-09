@@ -1,4 +1,4 @@
-import { queryClient } from 'app/provider';
+import { queryClient } from 'app/provider/queryClient';
 import { router } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 // import { useSession } from 'stores';

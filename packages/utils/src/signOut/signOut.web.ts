@@ -1,4 +1,4 @@
-import { queryClient } from 'app/provider';
+import { queryClient } from 'app/provider/queryClient';
 import axios from 'axios';
 import { env } from '../enviroments';
 
