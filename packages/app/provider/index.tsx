@@ -6,16 +6,13 @@ import {
   TamaguiProvider,
   ToastProvider,
 } from '@repo/ui';
-import {
-  QueryClient,
-  QueryClientProvider
-} from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { useColorScheme } from 'react-native';
+import { queryClient } from './queryClient';
 import { ToastViewport } from './ToastViewport';
 
 export const Provider = ({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) => {
   const colorScheme = useColorScheme();
-  const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>

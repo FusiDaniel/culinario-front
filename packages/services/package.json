@@ -1,0 +1,27 @@
+{
+  "name": "@repo/services",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "src/index.tsx",
+  "types": "./src",
+  "module:jsx": "src",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "build": "tamagui-build --skip-types",
+    "watch": "tamagui-build --skip-types --watch"
+  },
+  "dependencies": {
+    "@repo/utils": "0.0.1",
+    "@tanstack/react-query": "^5.71.1",
+    "axios": "^1.8.4"
+  },
+  "devDependencies": {
+    "@tamagui/build": "^1.125.32"
+  }
+}

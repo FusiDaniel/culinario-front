@@ -1,4 +1,4 @@
 {
-  "installCommand": "yarn set version 4 && yarn install && yarn postinstall",
+  "installCommand": "yarn set version 4.9.0 && yarn install && yarn postinstall",
   "buildCommand": "npm run build"
 }

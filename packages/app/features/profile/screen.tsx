@@ -1,5 +1,6 @@
 import type { IconProps } from '@tamagui/helpers-icon';
 import type { NamedExoticComponent, ReactNode } from 'react';
+import { useUsersMe } from '@repo/services';
 import {
   Button,
   Image,
@@ -10,6 +11,7 @@ import {
   XStack,
   YStack,
 } from '@repo/ui';
+import { signOut } from '@repo/utils';
 import {
   Bell,
   Camera,
@@ -21,8 +23,9 @@ import {
   Shield,
   User,
 } from '@tamagui/lucide-icons';
+import { isAxiosError } from 'axios';
 import { Fragment } from 'react';
-import { ProfileItem, ProfileSection, SelectItem } from './components';
+import { ProfileItem, ProfileSection, SelectItem, SignInForm } from './components';
 
 type MockSelectProps = { value: string };
 
@@ -108,64 +111,77 @@ const sections: SectionData[] = [
   },
 ];
 
-export const ProfileScreen = () => (
-  <NativeScrollView>
-    <YStack flex={1} px={24} py={32} bg="$bg1" gap={20}>
-      <XStack justify="space-between" items="center">
-        <SizableText size="$h1">Perfil</SizableText>
-        <XStack gap="$4" items="center">
-          <SwitchThemeButton />
-          <Menu size={20} color="$text1" />
+export const ProfileScreen = () => {
+  const { data: user, error, isError, isPending } = useUsersMe();
+
+  const noUser = isAxiosError(error) && error?.response?.status === 401;
+
+  return (
+    <NativeScrollView>
+      <YStack flex={1} px={24} py={32} bg="$bg1" gap={20}>
+        <XStack justify="space-between" items="center">
+          <SizableText size="$h1">Perfil</SizableText>
+          <XStack gap="$4" items="center">
+            <SwitchThemeButton />
+            <Menu size={24} color="$text1" />
+          </XStack>
         </XStack>
-      </XStack>
-      <YStack bg="$bg2" p="$4" rounded={16}>
-        <XStack gap="$4" items="center">
-          <View position="relative">
-            <Image
-              source={{ uri: 'https://picsum.photos/96/96?random=1' }}
-              width={96}
-              height={96}
-              borderRadius={48}
-              objectFit="cover"
-              alt="Profile"
-            />
-            <View
-              position="absolute"
-              b={0}
-              r={0}
-              bg="$bg2"
-              p="$2"
-              rounded={20}
-              borderWidth={1}
-              borderColor="$border"
-            >
-              <Camera size={20} color="$text2" />
-            </View>
-          </View>
-          <YStack>
-            <SizableText size="$h2" color="$text1">John Doe</SizableText>
-            <SizableText size="$body2" color="$text2">john.doe@example.com</SizableText>
-          </YStack>
-        </XStack>
+        {isPending && <SizableText size="$body2">Loading...</SizableText>}
+        {isError && !noUser && <SizableText size="$body2">Error loading user data</SizableText>}
+        {!isPending && !isError && (
+          <>
+            <YStack bg="$bg2" p="$4" rounded={16}>
+              <XStack gap="$4" items="center">
+                <View position="relative">
+                  <Image
+                    source={{ uri: 'https://picsum.photos/96/96?random=1' }}
+                    width={96}
+                    height={96}
+                    borderRadius={48}
+                    objectFit="cover"
+                    alt="Profile"
+                  />
+                  <View
+                    position="absolute"
+                    b={0}
+                    r={0}
+                    bg="$bg2"
+                    p="$2"
+                    rounded={20}
+                    borderWidth={1}
+                    borderColor="$border"
+                  >
+                    <Camera size={20} color="$text2" />
+                  </View>
+                </View>
+                <YStack>
+                  <SizableText size="$h2" color="$text1">{user.email}</SizableText>
+                  <SizableText size="$body2" color="$text2">{user.email}</SizableText>
+                </YStack>
+              </XStack>
+            </YStack>
+
+            {sections.map(section => (
+              <ProfileSection key={`section-${section.title}`} title={section.title}>
+                {section.items.map((item, itemIndex) => {
+                  const Item = item.type === 'select' ? SelectItem : ProfileItem;
+                  return (
+                    <Fragment key={item.title}>
+                      {itemIndex > 0 && <YStack mx="$4" borderTopWidth={1} borderColor="$border" />}
+                      <Item {...item} />
+                    </Fragment>
+                  );
+                })}
+              </ProfileSection>
+            ))}
+
+            <Button bg="$redOpacity" color="$red" size="LG" onPress={() => signOut()}>
+              Sign Out
+            </Button>
+          </>
+        )}
+        {!isPending && noUser && (<SignInForm />)}
       </YStack>
-
-      {sections.map(section => (
-        <ProfileSection key={`section-${section.title}`} title={section.title}>
-          {section.items.map((item, itemIndex) => {
-            const Item = item.type === 'select' ? SelectItem : ProfileItem;
-            return (
-              <Fragment key={item.title}>
-                {itemIndex > 0 && <YStack mx="$4" borderTopWidth={1} borderColor="$border" />}
-                <Item {...item} />
-              </Fragment>
-            );
-          })}
-        </ProfileSection>
-      ))}
-
-      <Button bg="$redOpacity" color="$red" size="LG">
-        Sign Out
-      </Button>
-    </YStack>
-  </NativeScrollView>
-);
+    </NativeScrollView>
+  );
+};

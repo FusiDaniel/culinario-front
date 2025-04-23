@@ -45,7 +45,8 @@
             "./assets/fonts/DMSans-SemiBold.ttf"
           ]
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
