@@ -11,6 +11,16 @@
         "image": "latest"
       }
     },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true,
+        "image": "latest"
+      }
+    },
     "production": {
       "distribution": "store",
       "android": {

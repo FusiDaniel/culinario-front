@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "yourprojectsname",
-    "slug": "yourprojectsname",
-    "scheme": "yourprojectsname",
+    "name": "culinario",
+    "slug": "app",
+    "scheme": "culinario-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,14 +20,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourprojectsname.app"
+      "bundleIdentifier": "com.culinario.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.yourprojectsname.app"
+      "package": "com.culinario.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -56,7 +56,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "64ca1766-6674-4e33-96ae-8ef220dc367e"
+        "projectId": "a67dd564-c76d-4e89-9088-247fe2be32c8"
       }
     }
   }
